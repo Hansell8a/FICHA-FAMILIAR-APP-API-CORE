@@ -1,0 +1,1 @@
+# ficha-familiar-app-api-core
