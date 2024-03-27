@@ -1,7 +1,7 @@
 const oracledb = require('oracledb')
 var connectionMessage = require("../common/connection-error");
 
-//oracledb.initOracleClient({ libDir: process.env.DB_CLIENT_LIB })
+oracledb.initOracleClient({ libDir: process.env.DB_CLIENT_LIB })
 oracledb.autoCommit = true
 let pool
 let outputFormat = {
@@ -17,7 +17,7 @@ module.exports.initialize = async () => {
       password: process.env.DB_PASS,
       connectString: process.env.DB_CONNECT_STRING,
       poolMax: parseInt(process.env.DB_POOL_MAX),
-      poolMin: parseInt(process.env.DB_POOL_MIN)
+      poolMin: parseInt(process.env.DB_POOL_MIN),
     })
     console.log('Conexión a la base de datos')
   } catch (err) {
