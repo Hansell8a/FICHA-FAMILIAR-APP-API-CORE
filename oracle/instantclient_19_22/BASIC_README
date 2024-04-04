@@ -1,13 +1,14 @@
-Basic Package Information 
-========================= 
-Thu Jan 11 07:21:25 PST 2024
-Client Shared Library 64-bit - 19.22.0.0.0
+Basic Package Information
+=========================
 
-Windows NT Version V6.2  
-CPU                 : 4 - type 86642 physical cores
-Process Affinity    : 0x0000000000000000
-Memory (Avail/Total): Ph:28864M/32767M, Ph+PgF:33726M/37631M 
+Thu Nov  2 00:15:19 PDT 2023
 
+Client Shared Library 64-bit - 19.16.0.0.0
+
+System name:	Darwin
+Release:	21.6.0
+Version:	Darwin Kernel Version 21.6.0: Mon Aug 22 20:17:10 PDT 2022; root:xnu-8020.140.49~2/RELEASE_X86_64
+Machine:	x86_64
 
 TIMEZONE INFORMATION
 --------------------
