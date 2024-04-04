@@ -17,6 +17,8 @@ async function iniciar() {
 }
 
 console.log(process.env.DB_USER);
+console.log(process.env.DB_CLIENT_LIB);
+
 iniciar();
 
 async function apagar(e) {
