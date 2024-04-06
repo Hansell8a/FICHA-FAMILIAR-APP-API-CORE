@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+const { CODE } = require('../common/http-status-code');
 var responseHttp = require("../common/response-template");
 var reponseMessage = require("../common/response-message");
 var services = require("../services/catalogosServices");
@@ -16,10 +17,10 @@ router.get('/', (req, res, next) => {
         res.send(responseHttp);
     }, (error) => {
         //console.error("Failed!", error);
-        res.status(404).send(error)
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(error)
     }).catch((ex) => {
         //console.error("Exception!", ex);
-        res.status(500).send(ex);
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(ex);
     });
 });
 

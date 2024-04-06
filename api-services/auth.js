@@ -1,4 +1,5 @@
 const { CODE } = require('../common/http-status-code');
+var responseHttp = require("../common/response-template");
 const axios = require('axios')
 
 
@@ -6,8 +7,13 @@ module.exports.verificarToken = async (request, response, next) => {
     let status = 'Inicie Sesión nuevamente para acceder al sistema'
     try {
         let token = request.headers["authorization"].split(' ')[1]
-        //console.log(token)
-        if (!token) return response.status(CODE.UNAUTHORIZED).json({ status })
+        if (!token) {
+            responseHttp.status = CODE.UNAUTHORIZED;
+            responseHttp.success = false;
+            responseHttp.message = status;
+            responseHttp.data = {};
+            return response.status(CODE.UNAUTHORIZED).json(responseHttp);
+        }
 
         let config = {
             method: 'get',
@@ -17,14 +23,21 @@ module.exports.verificarToken = async (request, response, next) => {
                 'Authorization': token
             }
         }
-
-        console.log(config)
         const { status } = await axios(config);
-        console.log(status)
-        if(status != 202) return response.status(CODE.UNAUTHORIZED).json({ status })
+        if(status != 202){
+            responseHttp.status = CODE.UNAUTHORIZED;
+            responseHttp.success = false;
+            responseHttp.message = status;
+            responseHttp.data = {};
+            return response.status(CODE.UNAUTHORIZED).json(responseHttp);
+        }
         next()
     } catch (error) {
-        //console.log(error)
-        return response.status(CODE.UNAUTHORIZED).json({ status })
+        responseHttp.status = CODE.UNAUTHORIZED;
+        responseHttp.success = false;
+        responseHttp.message = status;
+        responseHttp.data = {};
+        return response.status(CODE.UNAUTHORIZED).json(responseHttp);
+        //return response.status(CODE.UNAUTHORIZED).json({ status })
     }
 }
