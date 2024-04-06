@@ -6,6 +6,7 @@ module.exports.verificarToken = async (request, response, next) => {
     let status = 'Inicie Sesión nuevamente para acceder al sistema'
     try {
         let token = request.headers["authorization"].split(' ')[1]
+        //console.log(token)
         if (!token) return response.status(CODE.UNAUTHORIZED).json({ status })
 
         let config = {
@@ -17,11 +18,13 @@ module.exports.verificarToken = async (request, response, next) => {
             }
         }
 
-        const { status } = await axios(config)
+        console.log(config)
+        const { status } = await axios(config);
+        console.log(status)
         if(status != 202) return response.status(CODE.UNAUTHORIZED).json({ status })
         next()
     } catch (error) {
-        console.log(error)
+        //console.log(error)
         return response.status(CODE.UNAUTHORIZED).json({ status })
     }
 }

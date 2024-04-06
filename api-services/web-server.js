@@ -21,9 +21,9 @@ function initialize(){
         app.use(express.urlencoded({ extended: true }))
         app.use(express.json())
         if(process.env.MORGAN_LOGGER) app.use(morgan('dev'));
-        //app.use('/private', verificarToken, require('../routing/router-index'))
         app.use('/',require('../controllers/index'));
-        app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, require('../routing/router-index')); /// sin la validacion de la autenticacion MSPAS
+        //app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, require('../routing/router-index')); /// sin la validacion de la autenticacion MSPAS
+        app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, verificarToken, require('../routing/router-index')) /// validadcion de autenticacion MSPAS
         
 
         if(process.env.MODE == 'PROD'){
