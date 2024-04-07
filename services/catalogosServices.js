@@ -1,9 +1,11 @@
 var jsonTemplate = require("../common/json-template");
 var jsonCatalgos = require("../common/json-catalogos");
+const { usuario } = require('../api-services/auth');
 var catalogosDb = require("../db_apis/catalogos");
 
 
-exports.crudGeneral = (parameros) => {
+exports.crudGeneral = (req,parameros) => {
+    console.log(usuario(req));
     return new Promise((resolve, reject) => {
         try {
             jsonTemplate.encabezado.operacion = jsonCatalgos.operaciones.READ;

@@ -9,7 +9,7 @@ var services = require("../services/catalogosServices");
 
 router.get('/', (req, res, next) => {
     //console.log(req.headers);
-    services.crudGeneral(req.query).then((response) => {
+    services.crudGeneral(req,req.query).then((response) => {
         responseHttp.status = 200;
         responseHttp.success = true;
         responseHttp.message = reponseMessage.successMessage.get;
