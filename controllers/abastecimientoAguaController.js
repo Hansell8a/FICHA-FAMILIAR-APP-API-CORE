@@ -8,11 +8,7 @@ var services = require("../services/abastecimientoAguaServices");
 
 router.post('/', (req, res, next) => {
     services.insertar_abastecimiento_agua(req,req.body,"POST").then((response) => {
-        responseHttp.status = 200;
-        responseHttp.success = true;
-        responseHttp.message = reponseMessage.successMessage.post;
-        responseHttp.data = response;
-        res.send(responseHttp);
+        res.status(response.status).send(response);
     }, (error) => {
         //console.error("Failed!", error);
         res.status(CODE.INTERNAL_SERVER_ERROR).send(error)
@@ -24,11 +20,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
     services.obtener_abastecimiento_agua(req,req.query,"GET").then((response) => {
-        responseHttp.status = 200;
-        responseHttp.success = true;
-        responseHttp.message = reponseMessage.successMessage.get;
-        responseHttp.data = response;
-        res.send(responseHttp);
+        res.status(response.status).send(response);
     }, (error) => {
         //console.error("Failed!", error);
         res.status(CODE.INTERNAL_SERVER_ERROR).send(error)

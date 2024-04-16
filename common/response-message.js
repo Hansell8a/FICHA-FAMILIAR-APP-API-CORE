@@ -1,8 +1,8 @@
 exports.successMessage = {
     get: 'Éxito en la obtención de los datos.',
-    post: 'Registro guardado con éxito',
-    put: 'Registro actualizado con éxito',
-    delete: 'Registro eliminado con éxito'
+    post: 'El registro se ha creado correctamente.',
+    put: 'El registro se ha actualizado correctamente.',
+    delete: 'El registro se ha eliminado correctamente.'
 }
 
 exports.errorMessage = {

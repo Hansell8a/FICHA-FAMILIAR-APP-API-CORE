@@ -1,6 +1,12 @@
-exports.abastecimientoAguaRowMapper = async (resultSet) => {
+exports.abastecimientoAguaRowMapper = async (outBinds) => {
     let row;
     let lista = [];
+    let objeto = {
+        registros: Array,
+        smsMensaje: outBinds.pSmsMensaje,
+        smsError: outBinds.pSmsError
+    }
+    const resultSet = outBinds.pCursor;
     while ((row = await resultSet.getRow())) {
         const resultado = row.RESULTADO; // Suponiendo que 'RESULTADO' es el nombre de la columna que contiene el LOB
         if (resultado) {
@@ -19,5 +25,6 @@ exports.abastecimientoAguaRowMapper = async (resultSet) => {
             }, this);
         }
     }
-    return lista;
+    objeto.registros = lista;
+    return objeto;
 }

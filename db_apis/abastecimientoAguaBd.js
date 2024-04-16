@@ -54,8 +54,6 @@ module.exports.insertar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            console.log(plsql);
-            console.log(binds);
             let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
             return resolve(result);
         } catch (ex) {

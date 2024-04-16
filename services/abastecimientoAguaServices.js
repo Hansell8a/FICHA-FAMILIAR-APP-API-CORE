@@ -1,5 +1,3 @@
-var jsonTemplate = require("../common/json-template");
-var jsonCatalgos = require("../common/json-catalogos");
 const {
     obtenerUsuario
 } = require('../api-services/auth');
@@ -7,7 +5,7 @@ var abastecimientoAguaBd = require("../db_apis/abastecimientoAguaBd");
 
 
 exports.insertar_abastecimiento_agua = (req, parameros, method) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
             const objeto = {
@@ -17,10 +15,9 @@ exports.insertar_abastecimiento_agua = (req, parameros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = abastecimientoAguaBd.insertar_abastecimiento_agua(objeto, method);
+            var reponse = await abastecimientoAguaBd.insertar_abastecimiento_agua(objeto, method);
             return resolve(reponse);
         } catch (ex) {
-            console.log(ex);
             return reject(ex);
         }
     });

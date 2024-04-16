@@ -1,7 +1,11 @@
 const oracledb = require('oracledb')
 var connectionMessage = require("../common/connection-error");
-
-oracledb.initOracleClient({ libDir: process.env.DB_CLIENT_LIB })
+var reponseMessage = require("../common/response-message");
+var responseHttp = require("../common/response-template");
+const { CODE } = require('../common/http-status-code');
+oracledb.initOracleClient({
+  libDir: process.env.DB_CLIENT_LIB
+})
 oracledb.autoCommit = true
 let pool
 let outputFormat = {
@@ -105,7 +109,7 @@ module.exports.ejecutarSPSinCursorSalida = async (sp, binds = {}) => {
 }
 
 
-module.exports.ejecutarPackage = (sp, binds = {}, mapper,method) => {
+module.exports.ejecutarPackage = (sp, binds = {}, mapper, method) => {
   return new Promise((resolve, reject) => {
     pool.getConnection(function (err, connection) {
       if (err) {
@@ -116,12 +120,36 @@ module.exports.ejecutarPackage = (sp, binds = {}, mapper,method) => {
           await connection.close();
           return reject(connectionMessage.errorQuerys(err.message, method));
         }
-        const resultSet = result.outBinds.pCursor;
-        var data = await mapper(resultSet);
-        await resultSet.close();
+        const outBinds = result.outBinds;
+        var data = await mapper(outBinds);
         await connection.close()
-        return resolve(data);
+        return resolve(reponse_api(data,method));
       });
     });
   });
+}
+
+function reponse_api(reponse,method) {
+  if (reponse.smsError) {
+    responseHttp.status = CODE.INTERNAL_SERVER_ERROR;
+    responseHttp.success = false;
+    responseHttp.message = reponse.smsError;
+    responseHttp.data = [];
+    return responseHttp;
+  }
+  if (!reponse.smsError && reponse.registros.length == 0) {
+    responseHttp.status = CODE.CONFLICT;
+    responseHttp.success = false;
+    responseHttp.message = reponse.smsMensaje;
+    responseHttp.data = [];
+    return responseHttp;
+  }
+  responseHttp.status = CODE.OK;
+  responseHttp.success = true;
+  if(method == 'GET'){responseHttp.message = reponseMessage.successMessage.get;}
+  if(method == 'POST'){responseHttp.message = reponseMessage.successMessage.post;}
+  if(method == 'PUT'){responseHttp.message = reponseMessage.successMessage.put;}
+  if(method == 'DELETE'){responseHttp.message = reponseMessage.successMessage.delete;}
+  responseHttp.data = reponse.registros;
+  return responseHttp;
 }
