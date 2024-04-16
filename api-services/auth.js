@@ -47,7 +47,7 @@ module.exports.verificarToken = async (request, response, next) => {
     }
 }
 
-exports.usuario = (req) => {
+exports.obtenerUsuario = (req) => {
     let token = req.headers.authorization.split(' ')[1];
     var decoded = jwt.verify(token, process.env.JWT_MOVIL_SECRET);
     return {

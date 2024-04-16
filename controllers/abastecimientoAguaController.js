@@ -1,0 +1,25 @@
+var express = require('express');
+var router = express.Router();
+
+const { CODE } = require('../common/http-status-code');
+var responseHttp = require("../common/response-template");
+var reponseMessage = require("../common/response-message");
+var services = require("../services/abastecimientoAguaServices");
+
+router.post('/', (req, res, next) => {
+    services.insertar_abastecimiento_agua(req,req.body,"POST").then((response) => {
+        responseHttp.status = 200;
+        responseHttp.success = true;
+        responseHttp.message = reponseMessage.successMessage.post;
+        responseHttp.data = response;
+        res.send(responseHttp);
+    }, (error) => {
+        //console.error("Failed!", error);
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(error)
+    }).catch((ex) => {
+        //console.error("Exception!", ex);
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(ex);
+    });
+});
+
+module.exports = router;

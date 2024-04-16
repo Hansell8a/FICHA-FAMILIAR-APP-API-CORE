@@ -5,7 +5,6 @@ var catalogosDb = require("../db_apis/catalogos");
 
 
 exports.crudGeneral = (req,parameros) => {
-    console.log(usuario(req));
     return new Promise((resolve, reject) => {
         try {
             jsonTemplate.encabezado.operacion = jsonCatalgos.operaciones.READ;

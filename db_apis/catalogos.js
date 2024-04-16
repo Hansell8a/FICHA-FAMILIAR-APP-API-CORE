@@ -34,6 +34,8 @@ module.exports.crudGeneral = (jsonP) => {
                     type: oracledb.CURSOR
                 }
             };
+            console.log(plsql);
+            console.log(binds);
             let result = await ejecutarPackage(plsql, binds, catalogosRowMapper);
             return resolve(result);
         } catch (ex) {

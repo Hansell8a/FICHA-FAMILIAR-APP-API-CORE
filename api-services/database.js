@@ -105,45 +105,26 @@ module.exports.ejecutarSPSinCursorSalida = async (sp, binds = {}) => {
 }
 
 
-module.exports.ejecutarPackage = (sp, binds = {}, mapper) => {
+module.exports.ejecutarPackage = (sp, binds = {}, mapper,method) => {
   return new Promise((resolve, reject) => {
     pool.getConnection(function (err, connection) {
       if (err) {
+        
         return reject(connectionMessage.errorConnection(err.message));
       }
-      connection.execute(`CALL ${sp}`, binds, outputFormat, async function (err, result) {
+      console.log(`BEGIN  ${sp}; END;`);
+      connection.execute(`BEGIN  ${sp}; END;`, binds, async function (err, result) {
         if (err) {
-          await connection.close()
-          return reject(connectionMessage.errorQuerys(err.message, "GET"));
+          console.log(err);
+          await connection.close();
+          return reject(connectionMessage.errorQuerys(err.message, method));
         }
-        const resultSet = result.outBinds.pRegistro;
-        var data = await mapper(resultSet);
+        const cursor = result.outBinds.pCursor;
+        console.log(result);
+        await cursor.close();
         await connection.close()
-        return resolve(data);
+        return resolve(null);
       });
     });
   });
-
-
-
-  /*   connection = await pool.getConnection()
-
-    result = await connection.execute(`CALL ${sp}`, binds, outputFormat);
-
-    const resultSet = result.outBinds.pRegistro
-    resultData = await resultSet.getRows()
-    await resultSet.close()
-    console.log(resultData);
-    return resultData;
-  } catch (err) {
-    throw (err)
-  } finally {
-    if (connection) {
-      try {
-        await connection.close()
-      } catch (err) {
-        throw (err)
-      }
-    }
-  } */
 }
