@@ -109,21 +109,18 @@ module.exports.ejecutarPackage = (sp, binds = {}, mapper,method) => {
   return new Promise((resolve, reject) => {
     pool.getConnection(function (err, connection) {
       if (err) {
-        
         return reject(connectionMessage.errorConnection(err.message));
       }
-      console.log(`BEGIN  ${sp}; END;`);
       connection.execute(`BEGIN  ${sp}; END;`, binds, async function (err, result) {
         if (err) {
-          console.log(err);
           await connection.close();
           return reject(connectionMessage.errorQuerys(err.message, method));
         }
-        const cursor = result.outBinds.pCursor;
-        console.log(result);
-        await cursor.close();
+        const resultSet = result.outBinds.pCursor;
+        var data = await mapper(resultSet);
+        await resultSet.close();
         await connection.close()
-        return resolve(null);
+        return resolve(data);
       });
     });
   });

@@ -6,4 +6,5 @@ exports.packages = {
 
 exports.procedures = {
     sp_insertar_abastecimiento_agua: 'sp_insertar_abastecimiento_agua',
+    sp_obtener_abastecimiento_agua: 'sp_obtener_abastecimiento_agua',
 }
