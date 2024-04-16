@@ -15,12 +15,7 @@ async function iniciar() {
         process.exit(1);
     }
 }
-
-console.log(process.env.DB_USER);
-console.log(process.env.DB_CLIENT_LIB);
-
 iniciar();
-
 async function apagar(e) {
     let err = e;
     try {

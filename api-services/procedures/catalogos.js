@@ -7,4 +7,6 @@ exports.packages = {
 exports.procedures = {
     sp_insertar_abastecimiento_agua: 'sp_insertar_abastecimiento_agua',
     sp_obtener_abastecimiento_agua: 'sp_obtener_abastecimiento_agua',
+    sp_actualizar_abastecimiento_agua: 'sp_actualizar_abastecimiento_agua',
+    sp_eliminar_abastecimiento_agua: 'sp_eliminar_abastecimiento_agua',
 }

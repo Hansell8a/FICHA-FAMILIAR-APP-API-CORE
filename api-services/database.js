@@ -3,6 +3,7 @@ var connectionMessage = require("../common/connection-error");
 var reponseMessage = require("../common/response-message");
 var responseHttp = require("../common/response-template");
 const { CODE } = require('../common/http-status-code');
+const { response } = require('express');
 oracledb.initOracleClient({
   libDir: process.env.DB_CLIENT_LIB
 })
@@ -15,7 +16,7 @@ let outputFormat = {
 
 module.exports.initialize = async () => {
   try {
-    console.log(process.env.DB_USER);
+    //console.log(process.env.DB_USER);
     pool = await oracledb.createPool({
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
@@ -23,7 +24,7 @@ module.exports.initialize = async () => {
       poolMax: parseInt(process.env.DB_POOL_MAX),
       poolMin: parseInt(process.env.DB_POOL_MIN),
     })
-    console.log('Conexión a la base de datos')
+    //console.log('Conexión a la base de datos')
   } catch (err) {
     console.error(err)
   }
@@ -121,6 +122,7 @@ module.exports.ejecutarPackage = (sp, binds = {}, mapper, method) => {
           return reject(connectionMessage.errorQuerys(err.message, method));
         }
         const outBinds = result.outBinds;
+        console.log(outBinds);
         var data = await mapper(outBinds);
         await connection.close()
         return resolve(reponse_api(data,method));
@@ -137,7 +139,7 @@ function reponse_api(reponse,method) {
     responseHttp.data = [];
     return responseHttp;
   }
-  if (!reponse.smsError && reponse.registros.length == 0) {
+  if (!reponse.smsError && reponse.registros.length == 0 && !method=='GET') {
     responseHttp.status = CODE.CONFLICT;
     responseHttp.success = false;
     responseHttp.message = reponse.smsMensaje;
