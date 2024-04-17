@@ -60,6 +60,7 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
+            db
             let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
             return resolve(result);
         } catch (ex) {

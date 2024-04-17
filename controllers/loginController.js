@@ -9,12 +9,10 @@ router.post('/', (req, res, next) => {
  services.crearSession(req.body).then((response) => {
         res.status(CODE.OK).send(response);
     }, (error) => {
-        //console.error("Failed!", error);
-        res.status(CODE.INTERNAL_SERVER_ERROR).send(error)
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(error));        
     }).catch((ex) => {
-        //console.error("Exception!", ex);
-        res.status(CODE.INTERNAL_SERVER_ERROR).send(ex);
-    }); 
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));  
+    });
 });
 
 module.exports = router;

@@ -31,14 +31,16 @@ exports.crearSession = (parameros) => {
                 responseHttp.status = CODE.OK;
                 responseHttp.success = true;
                 responseHttp.message = reponseMessage.successMessage.get;
+                responseHttp.error = null;
                 responseHttp.data = reponse_model;
                 return resolve(responseHttp);
             }).catch(function (error) {
                 if(error.response){
                     const response = error.response.data;
-                    responseHttp.status = CODE.OK;
+                    responseHttp.status = CODE.CONFLICT;
                     responseHttp.success = false;
-                    responseHttp.message = response.message;
+                    responseHttp.message = null;
+                    responseHttp.error = response.message;
                     responseHttp.data = null;
                     return resolve(responseHttp);
                 } else {
