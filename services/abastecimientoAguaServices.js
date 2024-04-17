@@ -1,7 +1,7 @@
 const {
     obtenerUsuario
 } = require('../api-services/auth');
-var abastecimientoAguaBd = require("../db_apis/abastecimientoAguaBd");
+var oraServices = require("../db_apis/abastecimientoAguaBD");
 
 exports.obtener_abastecimiento_agua = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ exports.obtener_abastecimiento_agua = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = abastecimientoAguaBd.obtener_abastecimiento_agua(objeto, method);
+            var reponse = oraServices.obtener_abastecimiento_agua(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -32,7 +32,7 @@ exports.insertar_abastecimiento_agua = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = await abastecimientoAguaBd.insertar_abastecimiento_agua(objeto, method);
+            var reponse = await oraServices.insertar_abastecimiento_agua(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -51,7 +51,7 @@ exports.actualizar_abastecimiento_agua = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = await abastecimientoAguaBd.actualizar_abastecimiento_agua(objeto, method);
+            var reponse = await oraServices.actualizar_abastecimiento_agua(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -69,7 +69,7 @@ exports.eliminar_abastecimiento_agua = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = await abastecimientoAguaBd.eliminar_abastecimiento_agua(objeto, method);
+            var reponse = await oraServices.eliminar_abastecimiento_agua(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

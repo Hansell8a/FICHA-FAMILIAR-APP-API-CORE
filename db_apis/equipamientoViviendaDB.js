@@ -6,13 +6,13 @@ const {
     PROCEDURES
 } = require('../api-services/procedures/catalogos');
 var oracledb = require('oracledb');
-const { abastecimientoAguaRowMapper } = require('../mapper/abastecimientoAguaRowsMapper');
+const { equipamientoViviendaRowMapper } = require('../mapper/equipamientoViviendaRowsMapper');
 
-module.exports.obtener_abastecimiento_agua = (parametros,method) => {
+module.exports.obtener_equipamiento_vivienda = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.OBTENER}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.EQUIPAMIENTO_VIVIENDA.OBTENER}(` +
+                `:pIdEquipamientoVivienda,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -23,10 +23,10 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdEquipamientoVivienda: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_equipamiento_vivienda
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -60,18 +60,17 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, equipamientoViviendaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
         }
     });
 }
-
-module.exports.insertar_abastecimiento_agua = (parametros,method) => {
+module.exports.insertar_equipamiento_vivienda = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.INSERTAR}(` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.EQUIPAMIENTO_VIVIENDA.INSERTAR}(` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -114,19 +113,18 @@ module.exports.insertar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, equipamientoViviendaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
         }
     });
 }
-
-module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
+module.exports.actualizar_equipamiento_vivienda = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.ACTUALIZAR}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.EQUIPAMIENTO_VIVIENDA.ACTUALIZAR}(` +
+                `:pIdEquipamientoVivienda,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -137,10 +135,10 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdEquipamientoVivienda: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_equipamiento_vivienda
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -174,19 +172,18 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, equipamientoViviendaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
         }
     });
 }
-
-module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
+module.exports.eliminar_equipamiento_vivienda = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.ELIMINAR}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.EQUIPAMIENTO_VIVIENDA.ELIMINAR}(` +
+                `:pIdEquipamientoVivienda,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -196,10 +193,10 @@ module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdEquipamientoVivienda: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_equipamiento_vivienda
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
@@ -228,10 +225,12 @@ module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, equipamientoViviendaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
         }
     });
 }
+
+

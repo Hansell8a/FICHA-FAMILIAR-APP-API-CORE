@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
-const { CODE } = require('../common/http-status-code');
-var responseHttp = require("../common/response-template");
-var reponseMessage = require("../common/response-message");
+const {
+    CODE
+} = require('../common/http-status-code');
+const {
+    manejarErrorRequest
+} = require('../common/error-handler');
 var services = require("../services/loginServices");
 
 router.post('/', (req, res, next) => {
- services.crearSession(req.body).then((response) => {
-        res.status(CODE.OK).send(response);
+    services.crearSession(req.body).then((response) => {
+        if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
+        else {res.status(response.status).send(response);}
     }, (error) => {
-        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(error));        
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(error));
     }).catch((ex) => {
-        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));  
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));
     });
 });
 

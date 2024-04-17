@@ -31,6 +31,7 @@ async function apagar(e) {
 }
 
 process.on('SIGTERM', () => {
+    console.log('aqui');
     apagar();
 });
 

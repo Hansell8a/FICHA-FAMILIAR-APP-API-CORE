@@ -50,29 +50,26 @@ function escribirLog(data) {
         `\n----------------------------------------------------------\n`;
     const mensajeFormateado = `${fechaHora}: ${mensaje}\n`;
     if (fs.existsSync(LOG_LOCATION_CARPETA)) {
-        fs.appendFile(LOG_LOCATION, mensajeFormateado, (err) => {
-            if (err) {
-                //console.error('Error al escribir en el archivo de registro:', err);
-            }
-        });
+        crearLog(mensajeFormateado);
     } else {
         crearLogsCarpeta(LOG_LOCATION_CARPETA);
-        fs.appendFile(LOG_LOCATION, mensajeFormateado, (err) => {
-            if (err) {
-                //console.error('Error al escribir en el archivo de registro:', err);
-            }
-        });
+        crearLog(mensajeFormateado);
     }
 }
 
-function crearLogsCarpeta(LOG_LOCATION_CARPETA) {
-    //const nombreCarpeta = 'logs';
+function crearLogsCarpeta() {
     fs.mkdir(LOG_LOCATION_CARPETA, (err) => {
         if (err) {
-            //console.error('Error al crear la carpeta:', err);
             return;
         }
-        //console.log('¡Carpeta creada exitosamente!');
+    });
+}
+
+function crearLog(mensaje) {
+    fs.appendFile(LOG_LOCATION,mensaje, (err) => {
+        if (err) {
+            return;
+        }
     });
 }
 
