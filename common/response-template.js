@@ -4,6 +4,7 @@ var response = {
     status: Number,
     success: Boolean,
     message: String,
+    error: String,
     data: [Object]
 };
 

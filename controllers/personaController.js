@@ -58,6 +58,7 @@ module.exports.insertarPersonaSeguridad = async (request, response) => {
 
         response.status(CODE.OK).json(await insertarPersonaSeguridad(parametros))
     } catch (error) {
-        return manejarErrorRequest(error, response)
+        console.log(error);
+        //return manejarErrorRequest(error, response)
     }
 }

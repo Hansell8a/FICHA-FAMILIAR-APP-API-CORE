@@ -23,8 +23,9 @@ module.exports.initialize = async () => {
       connectString: process.env.DB_CONNECT_STRING,
       poolMax: parseInt(process.env.DB_POOL_MAX),
       poolMin: parseInt(process.env.DB_POOL_MIN),
+      //queueTimeout: parseInt(process.env.DB_QUEUE_TIMEOUT)
     })
-    //console.log('Conexión a la base de datos')
+    console.log('--> Exito en la conexión a la base de datos')
   } catch (err) {
     console.error(err)
   }
@@ -112,7 +113,7 @@ module.exports.ejecutarSPSinCursorSalida = async (sp, binds = {}) => {
 
 module.exports.ejecutarPackage = (sp, binds = {}, mapper, method) => {
   return new Promise((resolve, reject) => {
-    pool.getConnection(function (err, connection) {
+    pool.getConnection(async function (err, connection) {
       if (err) {
         return reject(connectionMessage.errorConnection(err.message));
       }
@@ -122,9 +123,9 @@ module.exports.ejecutarPackage = (sp, binds = {}, mapper, method) => {
           return reject(connectionMessage.errorQuerys(err.message, method));
         }
         const outBinds = result.outBinds;
-        console.log(outBinds);
+        //console.log(outBinds);
         var data = await mapper(outBinds);
-        await connection.close()
+        await connection.close();
         return resolve(reponse_api(data,method));
       });
     });
@@ -135,23 +136,33 @@ function reponse_api(reponse,method) {
   if (reponse.smsError) {
     responseHttp.status = CODE.INTERNAL_SERVER_ERROR;
     responseHttp.success = false;
-    responseHttp.message = reponse.smsError;
+
+    if(method == 'GET'){responseHttp.message = reponseMessage.errorMessage.get;}
+    if(method == 'POST'){responseHttp.message = reponseMessage.errorMessage.post;}
+    if(method == 'PUT'){responseHttp.message = reponseMessage.errorMessage.put;}
+    if(method == 'DELETE'){responseHttp.message = reponseMessage.errorMessage.delete;}
+
+    responseHttp.error =  reponse.smsError;
     responseHttp.data = [];
     return responseHttp;
   }
-  if (!reponse.smsError && reponse.registros.length == 0 && !method=='GET') {
+  if (!reponse.smsError && reponse.registros.length == 0 && method != "GET") {
+    console.log('aqui');
     responseHttp.status = CODE.CONFLICT;
     responseHttp.success = false;
     responseHttp.message = reponse.smsMensaje;
+    responseHttp.error =  null;
     responseHttp.data = [];
     return responseHttp;
   }
+
   responseHttp.status = CODE.OK;
   responseHttp.success = true;
   if(method == 'GET'){responseHttp.message = reponseMessage.successMessage.get;}
   if(method == 'POST'){responseHttp.message = reponseMessage.successMessage.post;}
   if(method == 'PUT'){responseHttp.message = reponseMessage.successMessage.put;}
   if(method == 'DELETE'){responseHttp.message = reponseMessage.successMessage.delete;}
+  responseHttp.error =  null;
   responseHttp.data = reponse.registros;
   return responseHttp;
 }

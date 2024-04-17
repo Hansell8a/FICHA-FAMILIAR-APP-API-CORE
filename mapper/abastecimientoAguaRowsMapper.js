@@ -7,6 +7,7 @@ exports.abastecimientoAguaRowMapper = async (outBinds) => {
         smsError: outBinds.pSmsError
     }
     const resultSet = outBinds.pCursor;
+    
     while ((row = await resultSet.getRow())) {
         const resultado = row.RESULTADO; // Suponiendo que 'RESULTADO' es el nombre de la columna que contiene el LOB
         if (resultado) {

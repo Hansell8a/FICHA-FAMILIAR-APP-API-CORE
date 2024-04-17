@@ -5,9 +5,8 @@ const path = require('path');
 console.log(path.sep);
 
 async function iniciar() {
-    
     try {
-        process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
+        //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
         await database.initialize()
         await webServer.initialize()
     } catch (error) {

@@ -41,6 +41,15 @@ function initialize() {
         }
         server.listen(process.env.PORT)
             .on('listening', () => {
+                /** */
+                if (process.env.MODE == 'PROD'){
+                    console.log(`--> Servidor iniciado en https://${process.env.HOSTNAME}:${process.env.PORT}/`);
+                    console.log(`--> Consumo de servicios en https://${process.env.HOSTNAME}:${process.env.PORT}/${process.env.API_NAME}/${process.env.API_VERSION}/`);
+                } else {
+                    console.log(`--> Servidor iniciado en http://localhost:${process.env.PORT}/`);
+                    console.log(`--> Consumo de servicios en http://localhost:${process.env.PORT}/${process.env.API_NAME}/${process.env.API_VERSION}/`);
+                }
+
                 const colorReset = "\x1b[0m";
                 const colorCyan = "\x1b[36m";
                 const colorYellow = "\x1b[33m";
@@ -52,9 +61,7 @@ function initialize() {
                 console.log("* hecho en nicaragua *");
                 console.log("**********************");
                 console.log(colorReset,"");
-                /** */
-                if (process.env.MODE == 'PROD') console.log(`Servidor iniciado en https://${process.env.HOSTNAME}:${process.env.PORT}`);
-                else console.log(`Servidor iniciado en http://localhost:${process.env.PORT}`);
+
                 resolve();
             })
             .on('error', error => {
