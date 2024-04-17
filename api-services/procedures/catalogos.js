@@ -16,6 +16,18 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_equipamiento_vivienda',
         ACTUALIZAR: 'sp_actualizar_equipamiento_vivienda',
         ELIMINAR:   'sp_eliminar_equipamiento_vivienda'
+    },
+    ESTADO_FAMILIA: {
+        OBTENER:    'sp_obtener_estado_familia',
+        INSERTAR:   'sp_insertar_estado_familia',
+        ACTUALIZAR: 'sp_actualizar_estado_familia',
+        ELIMINAR:   'sp_eliminar_estado_familia' 
+    },
+    FUENTE_COCINA: {
+        OBTENER:    'sp_obtener_fuente_cocina',
+        INSERTAR:   'sp_insertar_fuente_cocina',
+        ACTUALIZAR: 'sp_actualizar_fuente_cocina',
+        ELIMINAR:   'sp_eliminar_fuente_cocina' 
     }
 }
 

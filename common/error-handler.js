@@ -14,7 +14,7 @@ module.exports.manejarErrorRequest = (error) => {
     try {
         let errorMensaje = '';
         if (error.status) {
-            errorMensaje = error.error;
+            errorMensaje = error.error?error.error:error.message;
         } else {
             errorMensaje = error.stack;
         }

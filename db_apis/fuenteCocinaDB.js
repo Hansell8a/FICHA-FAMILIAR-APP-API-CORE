@@ -6,13 +6,13 @@ const {
     PROCEDURES
 } = require('../api-services/procedures/catalogos');
 var oracledb = require('oracledb');
-const { abastecimientoAguaRowMapper } = require('../mapper/abastecimientoAguaRowsMapper');
+const { fuenteCocinaRowMapper } = require('../mapper/fuenteCocinaRowsMapper');
 
-module.exports.obtener_abastecimiento_agua = (parametros,method) => {
+module.exports.obtener_fuente_cocina = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.OBTENER}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.OBTENER}(` +
+                `:pIdFuenteCocina,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -23,10 +23,10 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdFuenteCocina: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_fuente_cocina
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -60,7 +60,7 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -68,10 +68,10 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.insertar_abastecimiento_agua = (parametros,method) => {
+module.exports.insertar_fuente_cocina  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.INSERTAR}(` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.INSERTAR}(` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -114,7 +114,7 @@ module.exports.insertar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -122,11 +122,11 @@ module.exports.insertar_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
+module.exports.actualizar_fuente_cocina  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.ACTUALIZAR}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.ACTUALIZAR}(` +
+                `:pIdFuenteCocina,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -137,10 +137,10 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdFuenteCocina: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_fuente_cocina
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -174,7 +174,7 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -182,11 +182,11 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
+module.exports.eliminar_fuente_cocina  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PKG_CATALOGOS}.${PROCEDURES.ABASTECIMIENTO_AGUA.ELIMINAR}(` +
-                `:pIdAbastecimientoAgua,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.ELIMINAR}(` +
+                `:pIdFuenteCocina,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -196,10 +196,10 @@ module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdAbastecimientoAgua: {
+                pIdFuenteCocina: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_abastecimiento_agua
+                    val: parametros.id_fuente_cocina
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
@@ -228,7 +228,7 @@ module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, abastecimientoAguaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
