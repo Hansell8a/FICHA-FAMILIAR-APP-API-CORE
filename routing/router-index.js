@@ -12,6 +12,8 @@ var proveedorSaludController = require('../controllers/proveedorSaludController'
 var parentescoController = require('../controllers/parentescoController');
 var tenenciaViviendaController = require('../controllers/tenenciaViviendaController');
 var estadoFichaController = require('../controllers/estadoFichaController');
+var tipoAnimalController = require('../controllers/tipoAnimalController');
+var tipoCocinaController = require('../controllers/tipoCocinaController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -26,5 +28,7 @@ router.use('/proveedor-salud', proveedorSaludController);
 router.use('/parentesco', parentescoController);
 router.use('/tenencia-vivienda', tenenciaViviendaController);
 router.use('/estado-ficha', estadoFichaController);
+router.use('/tipo-animal', tipoAnimalController);
+router.use('/tipo-cocina', tipoCocinaController);
 
 module.exports = router

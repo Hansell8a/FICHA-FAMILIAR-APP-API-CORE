@@ -71,5 +71,17 @@ exports.PROCEDURES = {
         ACTUALIZAR: 'sp_actualizar_estado_ficha',
         ELIMINAR:   'sp_eliminar_estado_ficha' 
     },
+    TIPO_ANIMAL: {
+        OBTENER:    'sp_obtener_tipo_animal',
+        INSERTAR:   'sp_insertar_tipo_animal',
+        ACTUALIZAR: 'sp_actualizar_tipo_animal',
+        ELIMINAR:   'sp_eliminar_tipo_animal' 
+    },
+    TIPO_COCINA: {
+        OBTENER:    'sp_obtener_tipo_cocina',
+        INSERTAR:   'sp_insertar_tipo_cocina',
+        ACTUALIZAR: 'sp_actualizar_tipo_cocina',
+        ELIMINAR:   'sp_eliminar_tipo_cocina' 
+    },
 }
 
