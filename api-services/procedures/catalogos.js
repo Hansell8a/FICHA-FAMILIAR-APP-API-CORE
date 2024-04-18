@@ -64,6 +64,12 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_tenencia_vivienda',
         ACTUALIZAR: 'sp_actualizar_tenencia_vivienda',
         ELIMINAR:   'sp_eliminar_tenencia_vivienda' 
-    }
+    },
+    ESTADO_FICHA: {
+        OBTENER:    'sp_obtener_estado_ficha',
+        INSERTAR:   'sp_insertar_estado_ficha',
+        ACTUALIZAR: 'sp_actualizar_estado_ficha',
+        ELIMINAR:   'sp_eliminar_estado_ficha' 
+    },
 }
 

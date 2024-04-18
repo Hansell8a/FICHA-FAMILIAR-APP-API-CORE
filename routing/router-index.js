@@ -11,6 +11,7 @@ var materialTechoController = require('../controllers/materialTechoController');
 var proveedorSaludController = require('../controllers/proveedorSaludController');
 var parentescoController = require('../controllers/parentescoController');
 var tenenciaViviendaController = require('../controllers/tenenciaViviendaController');
+var estadoFichaController = require('../controllers/estadoFichaController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -24,5 +25,6 @@ router.use('/material-techo', materialTechoController);
 router.use('/proveedor-salud', proveedorSaludController);
 router.use('/parentesco', parentescoController);
 router.use('/tenencia-vivienda', tenenciaViviendaController);
+router.use('/estado-ficha', estadoFichaController);
 
 module.exports = router
