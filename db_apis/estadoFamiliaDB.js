@@ -8,7 +8,7 @@ const {
 var oracledb = require('oracledb');
 const { estadoFamiliaRowMapper } = require('../mapper/estadoFamiliaRowsMapper');
 
-module.exports.obtener_estado_familia = (parametros,method) => {
+module.exports.obtener = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ESTADO_FAMILIA.OBTENER}(` +
@@ -68,7 +68,7 @@ module.exports.obtener_estado_familia = (parametros,method) => {
     });
 }
 
-module.exports.insertar_estado_familia  = (parametros,method) => {
+module.exports.insertar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ESTADO_FAMILIA.INSERTAR}(` +
@@ -122,7 +122,7 @@ module.exports.insertar_estado_familia  = (parametros,method) => {
     });
 }
 
-module.exports.actualizar_estado_familia  = (parametros,method) => {
+module.exports.actualizar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ESTADO_FAMILIA.ACTUALIZAR}(` +
@@ -182,7 +182,7 @@ module.exports.actualizar_estado_familia  = (parametros,method) => {
     });
 }
 
-module.exports.eliminar_estado_familia  = (parametros,method) => {
+module.exports.eliminar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ESTADO_FAMILIA.ELIMINAR}(` +

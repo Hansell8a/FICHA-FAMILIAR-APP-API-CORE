@@ -3,7 +3,7 @@ const {
 } = require('../api-services/auth');
 var oraServices = require("../db_apis/equipamientoViviendaDB");
 
-exports.obtener_equipamiento_vivienda = (req, parametros, method) => {
+exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             const objeto = {
@@ -13,7 +13,7 @@ exports.obtener_equipamiento_vivienda = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.obtener_equipamiento_vivienda(objeto, method);
+            var reponse = oraServices.obtener(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -21,7 +21,7 @@ exports.obtener_equipamiento_vivienda = (req, parametros, method) => {
     });
 }
 
-exports.insertar_equipamiento_vivienda = (req, parametros, method) => {
+exports.insertar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -32,7 +32,7 @@ exports.insertar_equipamiento_vivienda = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.insertar_equipamiento_vivienda(objeto, method);
+            var reponse = oraServices.insertar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -40,7 +40,7 @@ exports.insertar_equipamiento_vivienda = (req, parametros, method) => {
     });
 }
 
-exports.actualizar_equipamiento_vivienda = (req, parametros, method) => {
+exports.actualizar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -51,7 +51,7 @@ exports.actualizar_equipamiento_vivienda = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.actualizar_equipamiento_vivienda(objeto, method);
+            var reponse = oraServices.actualizar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -59,7 +59,7 @@ exports.actualizar_equipamiento_vivienda = (req, parametros, method) => {
     });
 }
 
-exports.eliminar_equipamiento_vivienda = (req, parametros, method) => {
+exports.eliminar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -69,7 +69,7 @@ exports.eliminar_equipamiento_vivienda = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.eliminar_equipamiento_vivienda(objeto, method);
+            var reponse = oraServices.eliminar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

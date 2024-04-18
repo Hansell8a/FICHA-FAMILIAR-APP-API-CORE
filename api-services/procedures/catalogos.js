@@ -28,6 +28,18 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_fuente_cocina',
         ACTUALIZAR: 'sp_actualizar_fuente_cocina',
         ELIMINAR:   'sp_eliminar_fuente_cocina' 
+    },
+    MATERIAL_PARED: {
+        OBTENER:    'sp_obtener_material_pared',
+        INSERTAR:   'sp_insertar_material_pared',
+        ACTUALIZAR: 'sp_actualizar_material_pared',
+        ELIMINAR:   'sp_eliminar_material_pared' 
+    },
+    MATERIAL_PISO: {
+        OBTENER:    'sp_obtener_material_piso',
+        INSERTAR:   'sp_insertar_material_piso',
+        ACTUALIZAR: 'sp_actualizar_material_piso',
+        ELIMINAR:   'sp_eliminar_material_piso' 
     }
 }
 

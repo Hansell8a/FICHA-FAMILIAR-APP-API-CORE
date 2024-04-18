@@ -4,7 +4,7 @@ const {
 var oraServices = require("../db_apis/estadoFamiliaDB");
 
 
-exports.obtener_estado_familia = (req, parametros, method) => {
+exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             const objeto = {
@@ -14,7 +14,7 @@ exports.obtener_estado_familia = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.obtener_estado_familia(objeto, method);
+            var reponse = oraServices.obtener(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -22,7 +22,7 @@ exports.obtener_estado_familia = (req, parametros, method) => {
     });
 }
 
-exports.insertar_estado_familia = (req, parametros, method) => {
+exports.insertar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -33,7 +33,7 @@ exports.insertar_estado_familia = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.insertar_estado_familia(objeto, method);
+            var reponse = oraServices.insertar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -41,7 +41,7 @@ exports.insertar_estado_familia = (req, parametros, method) => {
     });
 }
 
-exports.actualizar_estado_familia = (req, parametros, method) => {
+exports.actualizar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -52,7 +52,7 @@ exports.actualizar_estado_familia = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.actualizar_estado_familia(objeto, method);
+            var reponse = oraServices.actualizar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
@@ -60,7 +60,7 @@ exports.actualizar_estado_familia = (req, parametros, method) => {
     });
 }
 
-exports.eliminar_estado_familia = (req, parametros, method) => {
+exports.eliminar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             var usuario = obtenerUsuario(req);
@@ -70,7 +70,7 @@ exports.eliminar_estado_familia = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.eliminar_estado_familia(objeto, method);
+            var reponse = oraServices.eliminar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

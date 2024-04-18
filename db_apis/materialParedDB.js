@@ -6,13 +6,13 @@ const {
     PROCEDURES
 } = require('../api-services/procedures/catalogos');
 var oracledb = require('oracledb');
-const { fuenteCocinaRowMapper } = require('../mapper/fuenteCocinaRowsMapper');
+const { rowMapper } = require('../mapper/materialParedRowsMapper');
 
 module.exports.obtener = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.OBTENER}(` +
-                `:pIdFuenteCocina,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.MATERIAL_PARED.OBTENER}(` +
+                `:pIdMaterialPared,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -23,10 +23,10 @@ module.exports.obtener = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdFuenteCocina: {
+                pIdMaterialPared: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_fuente_cocina
+                    val: parametros.id_material_pared
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -60,7 +60,7 @@ module.exports.obtener = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, rowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -71,7 +71,7 @@ module.exports.obtener = (parametros,method) => {
 module.exports.insertar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.INSERTAR}(` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.MATERIAL_PARED.INSERTAR}(` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -114,7 +114,7 @@ module.exports.insertar  = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, rowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -125,8 +125,8 @@ module.exports.insertar  = (parametros,method) => {
 module.exports.actualizar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.ACTUALIZAR}(` +
-                `:pIdFuenteCocina,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.MATERIAL_PARED.ACTUALIZAR}(` +
+                `:pIdMaterialPared,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -137,10 +137,10 @@ module.exports.actualizar  = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdFuenteCocina: {
+                pIdMaterialPared: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_fuente_cocina
+                    val: parametros.id_material_pared
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -174,7 +174,7 @@ module.exports.actualizar  = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, rowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);
@@ -185,8 +185,8 @@ module.exports.actualizar  = (parametros,method) => {
 module.exports.eliminar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FUENTE_COCINA.ELIMINAR}(` +
-                `:pIdFuenteCocina,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.MATERIAL_PARED.ELIMINAR}(` +
+                `:pIdMaterialPared,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -196,10 +196,10 @@ module.exports.eliminar  = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdFuenteCocina: {
+                pIdMaterialPared: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_fuente_cocina
+                    val: parametros.id_material_pared
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
@@ -228,7 +228,7 @@ module.exports.eliminar  = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, fuenteCocinaRowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, rowMapper,method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);

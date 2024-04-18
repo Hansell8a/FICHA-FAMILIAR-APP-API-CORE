@@ -8,7 +8,7 @@ const {
 var oracledb = require('oracledb');
 const { abastecimientoAguaRowMapper } = require('../mapper/abastecimientoAguaRowsMapper');
 
-module.exports.obtener_abastecimiento_agua = (parametros,method) => {
+module.exports.obtener = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.OBTENER}(` +
@@ -68,7 +68,7 @@ module.exports.obtener_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.insertar_abastecimiento_agua = (parametros,method) => {
+module.exports.insertar = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.INSERTAR}(` +
@@ -122,7 +122,7 @@ module.exports.insertar_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
+module.exports.actualizar = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.ACTUALIZAR}(` +
@@ -182,7 +182,7 @@ module.exports.actualizar_abastecimiento_agua = (parametros,method) => {
     });
 }
 
-module.exports.eliminar_abastecimiento_agua = (parametros,method) => {
+module.exports.eliminar = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ABASTECIMIENTO_AGUA.ELIMINAR}(` +

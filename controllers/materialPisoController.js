@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { CODE } = require('../common/http-status-code');
-var services = require("../services/equipamientoViviendaServices");
+var services = require("../services/materialPisoServices");
 const {
     manejarErrorRequest
 } = require('../common/error-handler');

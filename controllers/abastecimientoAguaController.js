@@ -8,7 +8,7 @@ const {
 
 
 router.get('/', (req, res, next) => {
-    services.obtener_abastecimiento_agua(req,req.query,"GET").then((response) => {
+    services.obtener(req,req.query,"GET").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
         else {res.status(response.status).send(response);}
     }, (error) => {
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    services.insertar_abastecimiento_agua(req,req.body,"POST").then((response) => {
+    services.insertar(req,req.body,"POST").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
         else {res.status(response.status).send(response);}
     }, (error) => {
@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/', (req, res, next) => {
-    services.actualizar_abastecimiento_agua(req,req.body,"PUT").then((response) => {
+    services.actualizar(req,req.body,"PUT").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
         else {res.status(response.status).send(response);}
     }, (error) => {
@@ -41,7 +41,7 @@ router.put('/', (req, res, next) => {
 });
 
 router.delete('/', (req, res, next) => {
-    services.eliminar_abastecimiento_agua(req,req.query,"DELETE").then((response) => {
+    services.eliminar(req,req.query,"DELETE").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
         else {res.status(response.status).send(response);}
     }, (error) => {
