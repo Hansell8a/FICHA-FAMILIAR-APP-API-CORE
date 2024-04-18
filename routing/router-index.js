@@ -14,6 +14,8 @@ var tenenciaViviendaController = require('../controllers/tenenciaViviendaControl
 var estadoFichaController = require('../controllers/estadoFichaController');
 var tipoAnimalController = require('../controllers/tipoAnimalController');
 var tipoCocinaController = require('../controllers/tipoCocinaController');
+var tipoDeficienciaController = require('../controllers/tipoDeficienciaController');
+var tipoServicioSanitarioController = require('../controllers/tipoServicioSanitarioController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -30,5 +32,7 @@ router.use('/tenencia-vivienda', tenenciaViviendaController);
 router.use('/estado-ficha', estadoFichaController);
 router.use('/tipo-animal', tipoAnimalController);
 router.use('/tipo-cocina', tipoCocinaController);
+router.use('/tipo-deficiencia', tipoDeficienciaController);
+router.use('/tipo-servicio-sanitario', tipoServicioSanitarioController);
 
 module.exports = router

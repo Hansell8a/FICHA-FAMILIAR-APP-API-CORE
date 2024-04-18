@@ -83,5 +83,17 @@ exports.PROCEDURES = {
         ACTUALIZAR: 'sp_actualizar_tipo_cocina',
         ELIMINAR:   'sp_eliminar_tipo_cocina' 
     },
+    TIPO_DEFICIENCIA: {
+        OBTENER:    'sp_obtener_tipo_deficiencia',
+        INSERTAR:   'sp_insertar_tipo_deficiencia',
+        ACTUALIZAR: 'sp_actualizar_tipo_deficiencia',
+        ELIMINAR:   'sp_eliminar_tipo_deficiencia' 
+    },
+    TIPO_SERVICIO_SANITARIO: {
+        OBTENER:    'sp_obtener_tipo_servicio_sanitario',
+        INSERTAR:   'sp_insertar_tipo_servicio_sanitario',
+        ACTUALIZAR: 'sp_actualizar_tipo_servicio_sanitario',
+        ELIMINAR:   'sp_eliminar_tipo_servicio_sanitario' 
+    }
 }
 
