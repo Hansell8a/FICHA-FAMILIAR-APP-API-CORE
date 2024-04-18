@@ -9,6 +9,9 @@ var materialParedController = require('../controllers/materialParedController');
 var materialPisoController = require('../controllers/materialPisoController');
 var materialTechoController = require('../controllers/materialTechoController');
 var proveedorSaludController = require('../controllers/proveedorSaludController');
+var parentescoController = require('../controllers/parentescoController');
+var tenenciaViviendaController = require('../controllers/tenenciaViviendaController');
+
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
 router.use('/abastecimiento-agua', abastecimientoAguaController);
@@ -19,5 +22,7 @@ router.use('/material-pared', materialParedController);
 router.use('/material-piso', materialPisoController);
 router.use('/material-techo', materialTechoController);
 router.use('/proveedor-salud', proveedorSaludController);
+router.use('/parentesco', parentescoController);
+router.use('/tenencia-vivienda', tenenciaViviendaController);
 
 module.exports = router

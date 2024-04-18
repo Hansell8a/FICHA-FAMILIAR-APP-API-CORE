@@ -53,5 +53,17 @@ exports.PROCEDURES = {
         ACTUALIZAR: 'sp_actualizar_proveedor_salud',
         ELIMINAR:   'sp_eliminar_proveedor_salud' 
     },
+    PARENTESCO: {
+        OBTENER:    'sp_obtener_parentesco',
+        INSERTAR:   'sp_insertar_parentesco',
+        ACTUALIZAR: 'sp_actualizar_parentesco',
+        ELIMINAR:   'sp_eliminar_parentesco' 
+    },
+    TENENCIA_VIVIENDA: {
+        OBTENER:    'sp_obtener_tenencia_vivienda',
+        INSERTAR:   'sp_insertar_tenencia_vivienda',
+        ACTUALIZAR: 'sp_actualizar_tenencia_vivienda',
+        ELIMINAR:   'sp_eliminar_tenencia_vivienda' 
+    }
 }
 
