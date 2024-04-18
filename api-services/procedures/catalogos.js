@@ -40,6 +40,18 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_material_piso',
         ACTUALIZAR: 'sp_actualizar_material_piso',
         ELIMINAR:   'sp_eliminar_material_piso' 
-    }
+    },
+    MATERIAL_TECHO: {
+        OBTENER:    'sp_obtener_material_techo',
+        INSERTAR:   'sp_insertar_material_techo',
+        ACTUALIZAR: 'sp_actualizar_material_techo',
+        ELIMINAR:   'sp_eliminar_material_techo' 
+    },
+    PROVEEDOR_SALUD: {
+        OBTENER:    'sp_obtener_proveedor_salud',
+        INSERTAR:   'sp_insertar_proveedor_salud',
+        ACTUALIZAR: 'sp_actualizar_proveedor_salud',
+        ELIMINAR:   'sp_eliminar_proveedor_salud' 
+    },
 }
 
