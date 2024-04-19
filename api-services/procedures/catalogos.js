@@ -94,6 +94,19 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_tipo_servicio_sanitario',
         ACTUALIZAR: 'sp_actualizar_tipo_servicio_sanitario',
         ELIMINAR:   'sp_eliminar_tipo_servicio_sanitario' 
+    },
+    /** */
+    TIPO_VIVIENDA: {
+        OBTENER:    'sp_obtener_tipo_vivienda',
+        INSERTAR:   'sp_insertar_tipo_vivienda',
+        ACTUALIZAR: 'sp_actualizar_tipo_vivienda',
+        ELIMINAR:   'sp_eliminar_tipo_vivienda' 
+    },
+    TRATAMIENTO_AGUA_GRIS: {
+        OBTENER:    'sp_obtener_tratamiento_agua_gris',
+        INSERTAR:   'sp_insertar_tratamiento_agua_gris',
+        ACTUALIZAR: 'sp_actualizar_tratamiento_agua_gris',
+        ELIMINAR:   'sp_eliminar_tratamiento_agua_gris' 
     }
 }
 
