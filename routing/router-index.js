@@ -18,6 +18,8 @@ var tipoDeficienciaController = require('../controllers/tipoDeficienciaControlle
 var tipoServicioSanitarioController = require('../controllers/tipoServicioSanitarioController');
 var tipoViviendaController = require('../controllers/tipoViviendaController');
 var tratamientoAguaGrisController = require('../controllers/tratamientoAguaGrisController');
+var tratamientoBasuraController = require('../controllers/tratamientoBasuraController');
+var tratamientoAguaResidualController = require('../controllers/tratamientoAguaResidualController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -37,7 +39,8 @@ router.use('/tipo-cocina', tipoCocinaController);
 router.use('/tipo-deficiencia', tipoDeficienciaController);
 router.use('/tipo-servicio-sanitario', tipoServicioSanitarioController);
 router.use('/tipo-vivienda', tipoViviendaController);
-router.use('/tratemiento-agua-gris', tratamientoAguaGrisController);
-
+router.use('/tratamiento-agua-gris', tratamientoAguaGrisController);
+router.use('/tratamiento-basura', tratamientoBasuraController);
+router.use('/tratamiento-agua-residual', tratamientoAguaResidualController);
 
 module.exports = router
