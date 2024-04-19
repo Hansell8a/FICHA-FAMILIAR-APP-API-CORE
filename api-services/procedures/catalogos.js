@@ -107,7 +107,6 @@ exports.PROCEDURES = {
         ACTUALIZAR: 'sp_actualizar_tratamiento_agua_gris',
         ELIMINAR:   'sp_eliminar_tratamiento_agua_gris' 
     },
-    /** */
     TRATAMIENTO_AGUA_RESIDUAL: {
         OBTENER:    'sp_obtener_tratamiento_agua_residual',
         INSERTAR:   'sp_insertar_tratamiento_agua_residual',
@@ -119,6 +118,19 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_tratamiento_basura',
         ACTUALIZAR: 'sp_actualizar_tratamiento_basura',
         ELIMINAR:   'sp_eliminar_tratamiento_basura' 
+    },
+    /** */
+    UBICACION_COCINA: {
+        OBTENER:    'sp_obtener_ubicacion_cocina',
+        INSERTAR:   'sp_insertar_ubicacion_cocina',
+        ACTUALIZAR: 'sp_actualizar_ubicacion_cocina',
+        ELIMINAR:   'sp_eliminar_ubicacion_cocina' 
+    },
+    USO_SERVICIO_SANITARIO: {
+        OBTENER:    'sp_obtener_uso_servicio_sanitario',
+        INSERTAR:   'sp_insertar_uso_servicio_sanitario',
+        ACTUALIZAR: 'sp_actualizar_uso_servicio_sanitario',
+        ELIMINAR:   'sp_eliminar_uso_servicio_sanitario' 
     }
 }
 
