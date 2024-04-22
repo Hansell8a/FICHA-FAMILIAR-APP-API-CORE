@@ -5,10 +5,14 @@ const {
 } = require('../common/http-status-code');
 var responseHttp = require("../common/response-template");
 var reponseMessage = require("../common/response-message");
+const https = require('https');
 
 exports.crearSession = (parameros) => {
     return new Promise((resolve, reject) => {
         try {
+            const agent = new https.Agent({
+                rejectUnauthorized: false,
+            });
             let body = {
                 email: parameros.email,
                 password: parameros.password
@@ -17,8 +21,9 @@ exports.crearSession = (parameros) => {
                 'Content-Type': 'application/json',
                 'client-credencial': process.env.AUTH_URL_CLIENT_CREDENTIAL
             }
-            axios.post(`${process.env.AUTH_URL}/auth/movil/v1/login`, body, {
-                headers: headersds
+            axios.post(`${process.env.AUTH_URL}/auth/movil/v1/login`, body,{
+                headers: headersds,
+                httpsAgent: agent,
             }).then(function (response) {
                 let token_model = response.data;
                 delete token_model.token;
@@ -35,6 +40,7 @@ exports.crearSession = (parameros) => {
                 responseHttp.data = reponse_model;
                 return resolve(responseHttp);
             }).catch(function (error) {
+                
                 if(error.response){
                     const response = error.response.data;
                     responseHttp.status = CODE.CONFLICT;
@@ -44,6 +50,7 @@ exports.crearSession = (parameros) => {
                     responseHttp.data = null;
                     return resolve(responseHttp);
                 } else {
+                    console.log(error);
                     return reject(error);
                 }
             });
