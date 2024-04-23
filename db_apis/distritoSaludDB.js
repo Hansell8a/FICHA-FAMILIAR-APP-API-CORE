@@ -6,16 +6,14 @@ const {
     PROCEDURES
 } = require('../api-services/procedures/catalogos');
 var oracledb = require('oracledb');
-const { rowMapper } = require('../mapper/descripcionServicioRowsMapper');
+const { rowMapper } = require('../mapper/distritoSaludRowsMapper');
 
 module.exports.obtener = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.DESCRIPCION_SERVICIO.OBTENER}(` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.DISTRITO_SALUD.OBTENER}(` +
                 `:pIdAS,` +
                 `:pIdDS,` +
-                `:pIdTs,` +
-                `:pIdTss,` +
                 `:pIdDepartamento,` +
                 `:pIdMunicipio,` +
                 /** */
@@ -35,16 +33,6 @@ module.exports.obtener = (parametros,method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_ds
-                },
-                pIdTs: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_ts
-                },
-                pIdTss: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_tss
                 },
                 pIdDepartamento: {
                     dir: oracledb.BIND_IN,
