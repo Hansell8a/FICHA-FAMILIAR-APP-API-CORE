@@ -131,6 +131,18 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_uso_servicio_sanitario',
         ACTUALIZAR: 'sp_actualizar_uso_servicio_sanitario',
         ELIMINAR:   'sp_eliminar_uso_servicio_sanitario' 
+    },
+    DEPARTAMENTO: {
+        OBTENER: 'sp_obtener_departamento'
+    },
+    MUNICIPIO: {
+        OBTENER: 'sp_obtener_municipio'
+    },
+    LUGAR_POBLADO: {
+        OBTENER: 'sp_obtener_lugar_poblado'
+    },
+    AREA_SALUD: {
+        OBTENER: 'sp_obtener_area_salud'
     }
 }
 

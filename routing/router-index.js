@@ -22,6 +22,8 @@ var tratamientoBasuraController = require('../controllers/tratamientoBasuraContr
 var tratamientoAguaResidualController = require('../controllers/tratamientoAguaResidualController');
 var ubicacionCocinaController = require('../controllers/ubicacionCocinaController');
 var usoServicioSanitarioController = require('../controllers/usoServicioSanitarioController');
+var departamentoController = require('../controllers/departamentoController');
+var municipioController = require('../controllers/municipioController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -46,5 +48,7 @@ router.use('/tratamiento-basura', tratamientoBasuraController);
 router.use('/tratamiento-agua-residual', tratamientoAguaResidualController);
 router.use('/ubicacion-cocina', ubicacionCocinaController);
 router.use('/uso-servicio-sanitario', usoServicioSanitarioController);
+router.use('/departamento', departamentoController);
+router.use('/municipio', municipioController);
 
 module.exports = router
