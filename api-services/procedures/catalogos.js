@@ -151,6 +151,13 @@ exports.PROCEDURES = {
     },
     TERRITORIO: {
         OBTENER: 'sp_obtener_territorio'
+    },
+    /** */
+    CENTRO_COMUNITARIO: {
+        OBTENER: 'sp_obtener_centro_comunitario'
+    },
+    COMUNIDAD: {
+        OBTENER: 'sp_obtener_comunidad'
     }
 }
 
