@@ -146,7 +146,6 @@ exports.PROCEDURES = {
     DESCRIPCION_SERVICIO: {
         OBTENER: 'sp_obtener_descripcion_servicio'
     },
-    /** */
     DISTRITO_SALUD: {
         OBTENER: 'sp_obtener_distrito_salud'
     },
