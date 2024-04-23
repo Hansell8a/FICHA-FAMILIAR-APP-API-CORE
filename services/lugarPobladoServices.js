@@ -1,7 +1,7 @@
 const {
     obtenerUsuario
 } = require('../api-services/auth');
-var oraServices = require("../db_apis/municipioDB");
+var oraServices = require("../db_apis/lugarPobladoDB");
 
 exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {

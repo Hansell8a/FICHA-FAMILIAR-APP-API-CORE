@@ -24,6 +24,7 @@ var ubicacionCocinaController = require('../controllers/ubicacionCocinaControlle
 var usoServicioSanitarioController = require('../controllers/usoServicioSanitarioController');
 var departamentoController = require('../controllers/departamentoController');
 var municipioController = require('../controllers/municipioController');
+var lugarPobladoController = require('../controllers/lugarPobladoController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -50,5 +51,7 @@ router.use('/ubicacion-cocina', ubicacionCocinaController);
 router.use('/uso-servicio-sanitario', usoServicioSanitarioController);
 router.use('/departamento', departamentoController);
 router.use('/municipio', municipioController);
+router.use('/lugar-poblado', lugarPobladoController);
+
 
 module.exports = router
