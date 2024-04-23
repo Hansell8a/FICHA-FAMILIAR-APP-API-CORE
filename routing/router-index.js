@@ -25,6 +25,8 @@ var usoServicioSanitarioController = require('../controllers/usoServicioSanitari
 var departamentoController = require('../controllers/departamentoController');
 var municipioController = require('../controllers/municipioController');
 var lugarPobladoController = require('../controllers/lugarPobladoController');
+var areaSaludController = require('../controllers/areaSaludController');
+
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -52,6 +54,6 @@ router.use('/uso-servicio-sanitario', usoServicioSanitarioController);
 router.use('/departamento', departamentoController);
 router.use('/municipio', municipioController);
 router.use('/lugar-poblado', lugarPobladoController);
-
+router.use('/area-salud', areaSaludController);
 
 module.exports = router
