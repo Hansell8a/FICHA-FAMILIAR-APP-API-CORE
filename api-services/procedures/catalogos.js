@@ -119,7 +119,6 @@ exports.PROCEDURES = {
         ACTUALIZAR: 'sp_actualizar_tratamiento_basura',
         ELIMINAR:   'sp_eliminar_tratamiento_basura' 
     },
-    /** */
     UBICACION_COCINA: {
         OBTENER:    'sp_obtener_ubicacion_cocina',
         INSERTAR:   'sp_insertar_ubicacion_cocina',
@@ -143,6 +142,16 @@ exports.PROCEDURES = {
     },
     AREA_SALUD: {
         OBTENER: 'sp_obtener_area_salud'
+    },
+    /** */
+    DESCRIPCION_SERVICIO: {
+        OBTENER: 'sp_obtener_descripcion_servicio'
+    },
+    DISTRITO_SALUD: {
+        OBTENER: 'sp_obtener_distrito_salud'
+    },
+    TERRITORIO: {
+        OBTENER: 'sp_obtener_territorio'
     }
 }
 
