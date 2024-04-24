@@ -31,7 +31,7 @@ var distritoSaludController = require('../controllers/distritoSaludController');
 var territorioController = require('../controllers/territorioController');
 var centroComunitarioController = require('../controllers/centroComunitarioController');
 var comunidadController = require('../controllers/comunidadController');
-
+var detalleEquipamientoViviendaController = require('../controllers/detalleEquipamientoViviendaController');
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
 router.use('/abastecimiento-agua', abastecimientoAguaController);
@@ -64,5 +64,5 @@ router.use('/distrito-salud', distritoSaludController);
 router.use('/territorio', territorioController);
 router.use('/centro-comunitario', centroComunitarioController);
 router.use('/comunidad', comunidadController);
-
+router.use('/detalle-equipamiento-vivienda', detalleEquipamientoViviendaController);
 module.exports = router
