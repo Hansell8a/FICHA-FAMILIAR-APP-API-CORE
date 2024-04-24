@@ -33,6 +33,7 @@ var centroComunitarioController = require('../controllers/centroComunitarioContr
 var comunidadController = require('../controllers/comunidadController');
 var detalleEquipamientoViviendaController = require('../controllers/detalleEquipamientoViviendaController');
 var detalleTratamientoBasuraController = require('../controllers/detalleTratamientoBasuraController');
+var detalleAguaResidualController = require('../controllers/detalleAguaResidualController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -68,4 +69,5 @@ router.use('/centro-comunitario', centroComunitarioController);
 router.use('/comunidad', comunidadController);
 router.use('/detalle-equipamiento-vivienda', detalleEquipamientoViviendaController);
 router.use('/detalle-tratamiento-basura', detalleTratamientoBasuraController);
+router.use('/detalle-agua-residual', detalleAguaResidualController);
 module.exports = router
