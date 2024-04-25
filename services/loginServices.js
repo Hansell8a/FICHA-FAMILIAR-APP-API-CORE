@@ -45,9 +45,9 @@ exports.crearSession = (parameros) => {
                     const response = error.response.data;
                     responseHttp.status = CODE.CONFLICT;
                     responseHttp.success = false;
-                    responseHttp.message = null;
-                    responseHttp.error = response.message;
-                    responseHttp.data = null;
+                    responseHttp.message = '';
+                    responseHttp.error = response.message?response.message:'';
+                    responseHttp.data = {};
                     return resolve(responseHttp);
                 } else {
                     console.log(error);

@@ -142,7 +142,7 @@ function reponse_api(reponse,method) {
     if(method == 'PUT'){responseHttp.message = reponseMessage.errorMessage.put;}
     if(method == 'DELETE'){responseHttp.message = reponseMessage.errorMessage.delete;}
 
-    responseHttp.error =  reponse.smsError;
+    responseHttp.error =  reponse.smsError?reponse.smsError: '';
     responseHttp.data = [];
     return responseHttp;
   }

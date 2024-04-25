@@ -14,7 +14,7 @@ module.exports.verificarToken = async (request, response, next) => {
             responseHttp.status = CODE.UNAUTHORIZED;
             responseHttp.success = false;
             responseHttp.message = status;
-            responseHttp.data = {};
+            responseHttp.data = [];
             return response.status(CODE.UNAUTHORIZED).json(responseHttp);
         }
         jwt.verify(token, process.env.JWT_MOVIL_SECRET);
@@ -32,7 +32,7 @@ module.exports.verificarToken = async (request, response, next) => {
                     responseHttp.status = CODE.UNAUTHORIZED;
                     responseHttp.success = false;
                     responseHttp.message = status;
-                    responseHttp.data = {};
+                    responseHttp.data = [];
                     return response.status(CODE.UNAUTHORIZED).json(responseHttp);
                 } */
         next()
@@ -41,7 +41,7 @@ module.exports.verificarToken = async (request, response, next) => {
         responseHttp.status = CODE.UNAUTHORIZED;
         responseHttp.success = false;
         responseHttp.message = status;
-        responseHttp.data = {};
+        responseHttp.data = [];
         return response.status(CODE.UNAUTHORIZED).json(responseHttp);
         //return response.status(CODE.UNAUTHORIZED).json({ status })
     }
