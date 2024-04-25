@@ -28,5 +28,11 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_detalle_animal_domestico',
         ACTUALIZAR: 'sp_actualizar_detalle_animal_domestico',
         ELIMINAR:   'sp_eliminar_detalle_animal_domestico'
+    },
+    FAMILIA_INTEGRANTE: {
+        OBTENER:    'sp_obtener_familia_integrante',
+        INSERTAR:   'sp_insertar_familia_integrante',
+        ACTUALIZAR: 'sp_actualizar_familia_integrante',
+        ELIMINAR:   'sp_eliminar_familia_integrante'
     }
 }
