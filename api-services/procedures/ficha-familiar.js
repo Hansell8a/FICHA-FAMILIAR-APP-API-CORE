@@ -22,5 +22,11 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_detalle_agua_residual',
         ACTUALIZAR: 'sp_actualizar_detalle_agua_residual',
         ELIMINAR:   'sp_eliminar_detalle_agua_residual'
+    },
+    DETALLE_ANIMAL_DOMESTICO: {
+        OBTENER:    'sp_obtener_detalle_animal_domestico',
+        INSERTAR:   'sp_insertar_detalle_animal_domestico',
+        ACTUALIZAR: 'sp_actualizar_detalle_animal_domestico',
+        ELIMINAR:   'sp_eliminar_detalle_animal_domestico'
     }
 }

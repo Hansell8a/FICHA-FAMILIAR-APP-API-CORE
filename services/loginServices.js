@@ -36,7 +36,7 @@ exports.crearSession = (parameros) => {
                 responseHttp.status = CODE.OK;
                 responseHttp.success = true;
                 responseHttp.message = reponseMessage.successMessage.get;
-                responseHttp.error = null;
+                responseHttp.error = '';
                 responseHttp.data = reponse_model;
                 return resolve(responseHttp);
             }).catch(function (error) {

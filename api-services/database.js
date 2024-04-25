@@ -151,7 +151,7 @@ function reponse_api(reponse,method) {
     responseHttp.status = CODE.CONFLICT;
     responseHttp.success = false;
     responseHttp.message = reponse.smsMensaje;
-    responseHttp.error =  null;
+    responseHttp.error =  '';
     responseHttp.data = [];
     return responseHttp;
   }
@@ -162,7 +162,7 @@ function reponse_api(reponse,method) {
   if(method == 'POST'){responseHttp.message = reponseMessage.successMessage.post;}
   if(method == 'PUT'){responseHttp.message = reponseMessage.successMessage.put;}
   if(method == 'DELETE'){responseHttp.message = reponseMessage.successMessage.delete;}
-  responseHttp.error =  null;
+  responseHttp.error =  '';
   responseHttp.data = reponse.registros;
   return responseHttp;
 }
