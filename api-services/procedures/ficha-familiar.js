@@ -34,5 +34,17 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_familia_integrante',
         ACTUALIZAR: 'sp_actualizar_familia_integrante',
         ELIMINAR:   'sp_eliminar_familia_integrante'
+    },
+    FICHA_FAMILIAR: {
+        OBTENER:    'sp_obtener_ficha_familiar',
+        INSERTAR:   'sp_insertar_ficha_familiar',
+        ACTUALIZAR: 'sp_actualizar_ficha_familiar',
+        ELIMINAR:   'sp_eliminar_ficha_familiar'
+    },
+    VIVIENDA_CARACTERISTICA: {
+        OBTENER:    'sp_obtener_vivienda_caracteristica',
+        INSERTAR:   'sp_insertar_vivienda_caracteristica',
+        ACTUALIZAR: 'sp_actualizar_vivienda_caracteristica',
+        ELIMINAR:   'sp_eliminar_vivienda_caracteristica'
     }
 }

@@ -36,6 +36,7 @@ var detalleTratamientoBasuraController = require('../controllers/detalleTratamie
 var detalleAguaResidualController = require('../controllers/detalleAguaResidualController');
 var detalleAnimalDomesticoController = require('../controllers/detalleAnimalDomesticoController');
 var familiaIntegranteController = require('../controllers/familiaIntegranteController');
+var fichaFamiliarController = require('../controllers/fichaFamiliarController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -74,6 +75,6 @@ router.use('/detalle-tratamiento-basura', detalleTratamientoBasuraController);
 router.use('/detalle-agua-residual', detalleAguaResidualController);
 router.use('/detalle-animal-domestico', detalleAnimalDomesticoController);
 router.use('/familia-integrante', familiaIntegranteController);
-
+router.use('/ficha-familiar', fichaFamiliarController);
 
 module.exports = router
