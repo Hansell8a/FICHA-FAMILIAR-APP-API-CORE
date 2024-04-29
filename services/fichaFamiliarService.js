@@ -2,6 +2,7 @@ const {
     obtenerUsuario
 } = require('../api-services/auth');
 var oraServices = require("../db_apis/fichaFamiliarDB");
+const moment = require('moment');
 
 exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
@@ -30,7 +31,7 @@ exports.insertar = (req, parametros, method) => {
             const objeto = {
                 id_estado_ficha: parametros.id_estado_ficha ? parseInt(parametros.id_estado_ficha) : 0,
                 id_usuario_superviso: parametros.id_usuario_superviso ? parseInt(parametros.id_usuario_superviso) : 0,
-                fecha_supervision: parametros.fecha_supervision,
+                fecha_supervision: moment(parametros.fecha_supervision, "DD/MM/YYYY").toDate(),
                 /** */
                 id_usuario_registro: usuario.idUsuario,
                 estado_registro: null,
@@ -52,13 +53,32 @@ exports.actualizar = (req, parametros, method) => {
                 id_ficha_familiar: parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
                 id_estado_ficha: parametros.id_estado_ficha ? parseInt(parametros.id_estado_ficha) : 0,
                 id_usuario_superviso: parametros.id_usuario_superviso ? parseInt(parametros.id_usuario_superviso) : 0,
-                fecha_supervision: parametros.fecha_supervision,
+                fecha_supervision: moment(parametros.fecha_supervision, "DD/MM/YYYY").toDate(),
                 /** */
                 id_usuario_registro: usuario.idUsuario,
                 estado_registro: null,
                 fecha_registro: null
             }
             var reponse = oraServices.actualizar(objeto, method);
+            return resolve(reponse);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
+
+exports.eliminar = (req, parametros, method) => {
+    return new Promise((resolve, reject) => {
+        try {
+            var usuario = obtenerUsuario(req);
+            const objeto = {
+                id_ficha_familiar: parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
+                /** */
+                id_usuario_registro: usuario.idUsuario,
+                estado_registro: null,
+                fecha_registro: null
+            }
+            var reponse = oraServices.eliminar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

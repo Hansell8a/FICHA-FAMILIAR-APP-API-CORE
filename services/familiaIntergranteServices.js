@@ -2,6 +2,7 @@ const {
     obtenerUsuario
 } = require('../api-services/auth');
 var oraServices = require("../db_apis/familiaIntegranteDB");
+const moment = require('moment');
 
 exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
@@ -52,7 +53,7 @@ exports.insertar = (req, parametros, method) => {
                 id_sexo:                    parametros.id_sexo ? parseInt(parametros.id_sexo) : 0,
                 id_pueblo:                  parametros.id_pueblo ? parseInt(parametros.id_pueblo) : 0,
                 id_comunidad_linguistica:   parametros.id_comunidad_linguistica ? parseInt(parametros.id_comunidad_linguistica) : 0,
-                fecha_nacimiento:           parametros.fecha_nacimiento ? parametros.fecha_nacimiento : null,
+                fecha_nacimiento:           moment(parametros.fecha_nacimiento ? parametros.fecha_nacimiento : null, "DD/MM/YYYY").toDate(),
                 edad:                       parametros.edad ? parseInt(parametros.edad) : 0,
                 id_municipio:               parametros.id_municipio ? parseInt(parametros.id_municipio) : 0,
                 id_departamento:            parametros.id_departamento ? parseInt(parametros.id_departamento) : 0,
@@ -85,6 +86,7 @@ exports.actualizar = (req, parametros, method) => {
         try {
             var usuario = obtenerUsuario(req);
             const objeto = {
+                id_familia_integrante:      parametros.id_familia_integrante ? parseInt(parametros.id_familia_integrante) : 0,
                 id_familia:                 parametros.id_familia ? parseInt(parametros.id_familia) : 0,
                 id_persona:                 parametros.id_persona ? parseInt(parametros.id_persona) : 0,
                 primer_nombre:              parametros.primer_nombre ? parametros.primer_nombre : null,
@@ -99,7 +101,7 @@ exports.actualizar = (req, parametros, method) => {
                 id_sexo:                    parametros.id_sexo ? parseInt(parametros.id_sexo) : 0,
                 id_pueblo:                  parametros.id_pueblo ? parseInt(parametros.id_pueblo) : 0,
                 id_comunidad_linguistica:   parametros.id_comunidad_linguistica ? parseInt(parametros.id_comunidad_linguistica) : 0,
-                fecha_nacimiento:           parametros.fecha_nacimiento ? parametros.fecha_nacimiento : null,
+                fecha_nacimiento:           moment(parametros.fecha_nacimiento ? parametros.fecha_nacimiento : null, "DD/MM/YYYY").toDate(),
                 edad:                       parametros.edad ? parseInt(parametros.edad) : 0,
                 id_municipio:               parametros.id_municipio ? parseInt(parametros.id_municipio) : 0,
                 id_departamento:            parametros.id_departamento ? parseInt(parametros.id_departamento) : 0,
@@ -119,6 +121,25 @@ exports.actualizar = (req, parametros, method) => {
             }
             console.log(objeto);
             var reponse = oraServices.actualizar(objeto, method);
+            return resolve(reponse);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
+
+exports.eliminar = (req, parametros, method) => {
+    return new Promise((resolve, reject) => {
+        try {
+            var usuario = obtenerUsuario(req);
+            const objeto = {
+                id_familia_integrante:      parametros.id_familia_integrante ? parseInt(parametros.id_familia_integrante) : 0,
+                /** */
+                id_usuario_registro: usuario.idUsuario,
+                estado_registro: null,
+                fecha_registro: null
+            }
+            var reponse = oraServices.eliminar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

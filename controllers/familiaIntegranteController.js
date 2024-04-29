@@ -40,7 +40,7 @@ router.put('/', (req, res, next) => {
     });
 });
 
-/*
+
 router.delete('/', (req, res, next) => {
     services.eliminar(req,req.query,"DELETE").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
@@ -50,6 +50,6 @@ router.delete('/', (req, res, next) => {
     }).catch((ex) => {
         res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));  
     });
-}); */
+});
 
 module.exports = router;
