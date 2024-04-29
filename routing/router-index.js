@@ -37,6 +37,7 @@ var detalleAguaResidualController = require('../controllers/detalleAguaResidualC
 var detalleAnimalDomesticoController = require('../controllers/detalleAnimalDomesticoController');
 var familiaIntegranteController = require('../controllers/familiaIntegranteController');
 var fichaFamiliarController = require('../controllers/fichaFamiliarController');
+var personaController = require('../controllers/personaController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -76,5 +77,6 @@ router.use('/detalle-agua-residual', detalleAguaResidualController);
 router.use('/detalle-animal-domestico', detalleAnimalDomesticoController);
 router.use('/familia-integrante', familiaIntegranteController);
 router.use('/ficha-familiar', fichaFamiliarController);
+router.use('/persona', personaController);
 
 module.exports = router

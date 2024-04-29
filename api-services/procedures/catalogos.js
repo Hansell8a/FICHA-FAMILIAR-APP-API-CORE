@@ -157,6 +157,9 @@ exports.PROCEDURES = {
     },
     COMUNIDAD: {
         OBTENER: 'sp_obtener_comunidad'
+    },
+    PERSONA: {
+        OBTENER: 'sp_obtener_persona'
     }
 }
 
