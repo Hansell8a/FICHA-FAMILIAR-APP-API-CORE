@@ -39,6 +39,7 @@ var familiaIntegranteController = require('../controllers/familiaIntegranteContr
 var fichaFamiliarController = require('../controllers/fichaFamiliarController');
 var personaController = require('../controllers/personaController');
 var viviendaCaracteristicasController = require('../controllers/viviendaCaracteristicasController');
+var sectorController = require('../controllers/sectorController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -80,5 +81,6 @@ router.use('/familia-integrante', familiaIntegranteController);
 router.use('/ficha-familiar', fichaFamiliarController);
 router.use('/persona', personaController);
 router.use('/vivienda-caracteristicas', viviendaCaracteristicasController);
+router.use('/sector', sectorController);
 
 module.exports = router
