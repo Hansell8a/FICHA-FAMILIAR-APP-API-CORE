@@ -46,5 +46,11 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_vivienda_caracteristica',
         ACTUALIZAR: 'sp_actualizar_vivienda_caracteristica',
         ELIMINAR:   'sp_eliminar_vivienda_caracteristica'
+    },
+    VIVIENDA_IDENTIFICACION:{
+        OBTENER:    'sp_obtener_vivienda_identificacion',
+        INSERTAR:   'sp_insertar_vivienda_identificacion',
+        ACTUALIZAR: 'sp_actualizar_vivienda_identificacion',
+        ELIMINAR:   'sp_eliminar_vivienda_identificacion'
     }
 }
