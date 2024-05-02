@@ -17,9 +17,9 @@ exports.rowMapper = async (outBinds) => {
                 const objeto = {
                     id_territorio: element.ID_TERRITORIO,
                     descripcion: element.DESCRIPCION,
-                    id_as: element.IDAS,
-                    id_ds: element.IDDS,
-                    id_ts: element.IDTS,
+                    id_as: parseInt(element.IDAS),
+                    id_ds: parseInt(element.IDDS),
+                    id_ts: parseInt(element.IDTS),
                     /** */
                     estado_registro: element.ESTADO_REGISTRO,
                     id_usuario_registro: element.ID_USUARIO_REGISTRO,
