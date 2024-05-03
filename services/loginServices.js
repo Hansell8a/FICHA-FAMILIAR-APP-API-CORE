@@ -32,6 +32,7 @@ exports.crearSession = (parameros) => {
                 let tokenMovil = jwt.sign(token_model,process.env.JWT_MOVIL_SECRET);
                 let reponse_model = response.data;
                 reponse_model.tokenMovil = tokenMovil;
+                reponse_model.nombreCompleto = reponse_model.nombres +" "+ reponse_model.apellidos;
 
                 responseHttp.status = CODE.OK;
                 responseHttp.success = true;
