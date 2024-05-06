@@ -85,8 +85,8 @@ exports.insertar_unificado = (req, parametros, method) => {
                     id_as: (parametros.id_as).toString(),
                     id_ds: (parametros.id_ds).toString(),
                     id_ts: (parametros.id_ts).toString(),
-                    id_cc: (parametros.id_cc).toString(),
-                    id_c: (parametros.id_c).toString(),
+                    id_cc: parametros.id_cc? (parametros.id_cc).toString() : '0',
+                    id_c: parametros.id_c? (parametros.id_c).toString() : '0',
                     id_territorio: parametros.id_territorio,
                     id_sector: parametros.id_sector,
                     /** */
@@ -94,6 +94,7 @@ exports.insertar_unificado = (req, parametros, method) => {
                     estado_registro: null,
                     fecha_registro: null
                 }
+                //console.log(vivienda_identificacion_objeto);
                 var responseVivienda = await viviendaIdentificacionOraServices.insertar(vivienda_identificacion_objeto, method);
                 if (responseVivienda.success) {
                     responseVivienda.data[0].id_estado_ficha = objetoFichaResponse.id_estado_ficha;
