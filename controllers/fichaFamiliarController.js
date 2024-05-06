@@ -28,6 +28,16 @@ router.post('/', (req, res, next) => {
     });
 });
 
+router.post('/unificado', (req, res, next) => {
+    services.insertar_unificado(req,req.body,"POST").then((response) => {
+        if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
+        else {res.status(response.status).send(response);}
+    }, (error) => {
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(error));        
+    }).catch((ex) => {
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));  
+    });
+});
 
 router.put('/', (req, res, next) => {
     services.actualizar(req,req.body,"PUT").then((response) => {
