@@ -55,13 +55,11 @@ exports.obtener = (req, parametros, method) => {
                             fecha_nacimiento: personaRenap.FECHA_NACIMIENTO,
                         };
                         reponse.data.push(per);
-                        console.log(reponse);
                         return resolve(reponse);
                     }
                 }).catch(function (error) {
                     return reject(error);
                 });             
-                return resolve(reponse);
             } else {
                 return resolve(reponse);
             }
