@@ -15,24 +15,25 @@ exports.rowMapper = async (outBinds) => {
             const rows = JSON.parse(data);
             rows.forEach(function (element) {
                 const objeto = {
-                    id_persona: element.ID_PERSONA,
-                    primer_nombre: element.PRIMER_NOMBRE,
-                    segundo_nombre: element.SEGUNDO_NOMBRE,
+                    tipo_dpi: element.TIPO_DPI,
+                    fecha_defuncion: element.FECHA_DEFUNCION,
+                    fecha_inscripcion_defuncion: element.FECHA_INSCRIPCION_DEFUNCION,
+                    ocupacion: element.OCUPACION,
+                    muni_nacimiento: element.MUNI_NACIMIENTO,
+                    pais_nacimiento: element.PAIS_NACIMIENTO,
                     tercer_nombre: element.TERCER_NOMBRE,
+                    genero:element.GENERO,
                     primer_apellido: element.PRIMER_APELLIDO,
+                    nacionalidad: element.NACIONALIDAD,
+                    depto_nacimiento: element.DEPTO_NACIMIENTO,
+                    mensaje: element.MENSAJE,
+                    segundo_nombre: element.SEGUNDO_NOMBRE,
+                    primer_nombre: element.PRIMER_NOMBRE,
                     segundo_apellido: element.SEGUNDO_APELLIDO,
+                    cui: (element.CUI).toString(),
+                    estado_civil: element.ESTADO_CIVIL,
+                    apellido_casada: element.APELLIDO_CASADA,
                     fecha_nacimiento: element.FECHA_NACIMIENTO,
-                    edad: element.EDAD,
-                    id_sexo: element.ID_SEXO,
-                    id_estado_civil: element.ID_ESTADO_CIVIL,
-                    id_pueblo: element.ID_PUEBLO,
-                    id_comunidad_linguistica: element.ID_COMUNIDAD_LINGUISTICA,
-                    id_departamento_residencia: element.ID_DEPARTAMENTO_RESIDENCIA,
-                    id_municipio_residencia: element.ID_MUNICIPIO_RESIDENCIA,
-                    /** */
-                    estado_registro: element.ESTADO_REGISTRO,
-                    id_usuario_registro: element.ID_USUARIO_REGISTRO,
-                    fecha_registro: element.FECHA_REGISTRO,
                 };
                 lista.push(objeto);
             }, this);
