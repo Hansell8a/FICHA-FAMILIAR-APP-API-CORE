@@ -53,6 +53,12 @@ exports.obtener = (req, parametros, method) => {
                             estado_civil: personaRenap.ESTADO_CIVIL,
                             apellido_casada: personaRenap.APELLIDO_CASADA,
                             fecha_nacimiento: personaRenap.FECHA_NACIMIENTO,
+
+                            id_lp: personaRenap.ID_LP,
+                            nombre_lugar_poblado: personaRenap.NOMBRE_LUGAR_POBLADO,
+                            id_comunidad_linguistica :personaRenap.ID_COMUNIDAD_LINGUISTICA,
+                            nombre_comunidad_linguistica:personaRenap.NOMBRE_COMUNIDAD_LINGUISTICA,
+                            edad: personaRenap.EDAD
                         };
                         reponse.data.push(per);
                         return resolve(reponse);

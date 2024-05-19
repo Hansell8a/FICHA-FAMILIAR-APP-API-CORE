@@ -34,6 +34,15 @@ exports.rowMapper = async (outBinds) => {
                     estado_civil: element.ESTADO_CIVIL,
                     apellido_casada: element.APELLIDO_CASADA,
                     fecha_nacimiento: element.FECHA_NACIMIENTO,
+                    id_estado_civil: element.ID_ESTADO_CIVIL,   
+
+                    
+                    id_lp: element.ID_LP,
+                    nombre_lugar_poblado: element.NOMBRE_LUGAR_POBLADO,
+                    id_comunidad_linguistica :element.ID_COMUNIDAD_LINGUISTICA,
+                    nombre_comunidad_linguistica:element.NOMBRE_COMUNIDAD_LINGUISTICA,
+                    edad: element.EDAD
+
                 };
                 lista.push(objeto);
             }, this);
