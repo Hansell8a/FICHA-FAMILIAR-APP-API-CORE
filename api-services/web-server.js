@@ -10,6 +10,9 @@ const path = require('path');
 const {
     verificarToken
 } = require('./auth');
+const {
+    desencryptarRutas
+} = require('../common/utils');
 
 let server;
 
@@ -26,10 +29,21 @@ function initialize() {
         app.use(express.json())
         if (process.env.MORGAN_LOGGER) app.use(morgan('dev'));
         app.use('/', require('../controllers/indexController'));
-        app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}/login`, require('../controllers/loginController'))
-        //app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, require('../routing/router-index')); /// sin la validacion de la autenticacion MSPAS
-        app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, verificarToken, require('../routing/router-index')) /// validadcion de autenticacion MSPAS
 
+        /*** Configuracion de accesos a rutas */
+        const API_RUTA = `/${process.env.API_NAME}/${process.env.API_VERSION}/`;
+        app.use(`${API_RUTA}login`, require('../controllers/loginController'))   // Acceso libre a Login
+
+        // Configuracion de encriptacion. 
+/*         app.use((req, res, next) => {
+            const es_valida = req.path.startsWith(`${API_RUTA}`);
+            if (es_valida) {
+                const encryptedPart = req.path.split(`${API_RUTA}`)[1];
+                req.url = `${API_RUTA}${desencryptarRutas(encryptedPart)}`;
+            }
+            next(); 
+        }); */
+        app.use(`/${process.env.API_NAME}/${process.env.API_VERSION}`, verificarToken, require('../routing/router-index')) /// validadcion de autenticacion MSPAS
 
         if (process.env.MODE == 'PROD') {
             server = https.createServer({

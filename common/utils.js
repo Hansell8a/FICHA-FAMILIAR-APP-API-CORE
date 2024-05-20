@@ -10,6 +10,23 @@ module.exports.formarResponse = function (response, mensaje, estado) {
     return response;
 }
 
+module.exports.encryptarSegmento = function (param) {
+    var b64 = CryptoJS.AES.encrypt(param, process.env.ENCRYPT_SECRET).toString();
+    var e64 = CryptoJS.enc.Base64.parse(b64);
+    var eHex = e64.toString(CryptoJS.enc.Hex);
+    return eHex;
+    //return  JSON.stringify({'data': eHex});
+}
+
+module.exports.desencryptarRutas = function (param) {
+    //const param = "53616c7465645f5f1ff54e8f0bde551e67828705e021da081c20cd2f8c134e33a785ff3e5d25c8af3032155ceeba48a6d781a72d5f92b5a6d8907094952edfaf9c16cf4223f38d41a7c40e371043964db2c3bab7edc5ccd0c03bd431a181c4d4a61af53ec136dc98c9fd11e3ce57f1fdfdeb2ac2eccb03746c220335f8f00c47f07b76f56cc3a38ef3899d226fe60efc888acec63916eadab6debc317633c6e6c096e365406230c5479351a39fb9068fe1cff6bbef7f393f292e5ec5bd6c8862dec8d1480416eb175c574ba954dcef19";
+    var reb64 = CryptoJS.enc.Hex.parse(param);
+    var bytes = reb64.toString(CryptoJS.enc.Base64);
+    var decrypt = CryptoJS.AES.decrypt(bytes, process.env.ENCRYPT_SECRET);
+    var plain = decrypt.toString(CryptoJS.enc.Utf8);
+    return plain;
+}
+
 module.exports.desencryptarParam = function () {
     const param = "53616c7465645f5f1ff54e8f0bde551e67828705e021da081c20cd2f8c134e33a785ff3e5d25c8af3032155ceeba48a6d781a72d5f92b5a6d8907094952edfaf9c16cf4223f38d41a7c40e371043964db2c3bab7edc5ccd0c03bd431a181c4d4a61af53ec136dc98c9fd11e3ce57f1fdfdeb2ac2eccb03746c220335f8f00c47f07b76f56cc3a38ef3899d226fe60efc888acec63916eadab6debc317633c6e6c096e365406230c5479351a39fb9068fe1cff6bbef7f393f292e5ec5bd6c8862dec8d1480416eb175c574ba954dcef19";
     var reb64 = CryptoJS.enc.Hex.parse(param);
