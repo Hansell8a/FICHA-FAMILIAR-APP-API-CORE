@@ -1,8 +1,26 @@
 require('dotenv').config()
 const database = require('./api-services/database')
 const webServer = require('./api-services/web-server');
+const fs = require('fs');
 const path = require('path');
 console.log(path.sep);
+
+// Función para obtener la lista de carpetas en el directorio actual
+function getDirectories(srcPath) {
+    return fs.readdirSync(srcPath)
+        .filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
+}
+
+// Directorio actual
+const currentPath = __dirname;
+
+// Obtener la lista de carpetas
+const directories = getDirectories(currentPath);
+
+// Imprimir la lista de carpetas
+console.log(directories);
+
+
 
 async function iniciar() {
     try {
