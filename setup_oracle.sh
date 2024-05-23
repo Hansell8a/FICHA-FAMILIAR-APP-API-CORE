@@ -41,6 +41,17 @@ else
     #exit 1
 fi
 
+# Verificar los permisos de libnnz19.so
+echo "Verificando los permisos de libnnz19.so..."
+ls -l $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
+
+# Ajustar permisos si es necesario
+chmod 755 $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
+
+# Verificar los permisos después de ajustar
+echo "Permisos después de ajustar:"
+ls -l $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
+
 # Instalar dependencias de npm
 echo "Instalando dependencias de npm..."
 npm install
@@ -53,4 +64,6 @@ else
 fi
 
 echo "Configuración completada con éxito."
+
+ls ./
 
