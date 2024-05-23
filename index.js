@@ -22,8 +22,8 @@ fs.readdir(process.env.DB_CLIENT_LIB, (err, files) => {
 async function iniciar() {
     try {
         //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
-        //await database.initialize()
-        await webServer.initialize()
+        await database.initialize();
+        await webServer.initialize();
     } catch (error) {
         console.log(error);
         process.exit(1);
