@@ -25,7 +25,7 @@ console.log(directories);
 async function iniciar() {
     try {
         //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
-        //await database.initialize()
+        await database.initialize()
         await webServer.initialize()
     } catch (error) {
         console.log(error);
