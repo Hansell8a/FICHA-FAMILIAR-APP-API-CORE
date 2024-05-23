@@ -12,10 +12,10 @@ else
 fi
 
 echo "Descomprimiendo Oracle Instant Client..."
-unzip -o oracle_linux.zip -d /opt/render/project/
+unzip -o oracle_linux.zip -d /app/
 
 # Establecer la ruta de Oracle Instant Client
-ORACLE_INSTANT_CLIENT_PATH=/opt/render/project/oracle/instantclient_19_23
+ORACLE_INSTANT_CLIENT_PATH=/app/oracle/instantclient_19_23
 
 
 # Exportar las variables de entorno de forma segura
