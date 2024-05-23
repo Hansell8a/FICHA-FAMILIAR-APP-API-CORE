@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Descomprimir Oracle Instant Client
-unzip -o oracle_linux.zip -d /opt/render/project/src/
+unzip -o oracle_linux.zip -d /opt/render/project/src/oracle/
 
 # Exportar las variables de entorno
 export LD_LIBRARY_PATH=/opt/render/project/src/oracle/instantclient_19_19:$LD_LIBRARY_PATH
