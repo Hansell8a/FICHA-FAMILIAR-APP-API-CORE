@@ -1,7 +1,15 @@
 #!/bin/bash
+
 # Instalar dependencias de npm
 echo "Instalando dependencias de npm..."
 npm install
+
+if [ $? -eq 0 ]; then
+    echo "Dependencias de npm instaladas correctamente."
+else
+    echo "Error al instalar dependencias de npm."
+    #exit 1
+fi
 
 echo "Descomprimiendo Oracle Instant Client..."
 unzip -o oracle_linux.zip -d /opt/render/project/
@@ -16,7 +24,7 @@ else
     export LD_LIBRARY_PATH=$ORACLE_INSTANT_CLIENT_PATH:$LD_LIBRARY_PATH
 fi
 
-export LD_LIBRARY_PATH=ORACLE_INSTANT_CLIENT_PATH:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$ORACLE_INSTANT_CLIENT_PATH:$LD_LIBRARY_PATH
 export ORACLE_HOME=$ORACLE_INSTANT_CLIENT_PATH
 
 echo "LD_LIBRARY_PATH configurado como: $LD_LIBRARY_PATH"
@@ -56,12 +64,7 @@ chmod 755 $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
 echo "Permisos después de ajustar:"
 #ls -l $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
 
-if [ $? -eq 0 ]; then
-    echo "Dependencias de npm instaladas correctamente."
-else
-    echo "Error al instalar dependencias de npm."
-    #exit 1
-fi
+
 
 #ls ./
 
