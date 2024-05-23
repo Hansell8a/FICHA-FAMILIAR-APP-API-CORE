@@ -3,29 +3,26 @@ const database = require('./api-services/database')
 const webServer = require('./api-services/web-server');
 const fs = require('fs');
 const path = require('path');
-console.log(path.sep);
+console.log(process.env.DB_CLIENT_LIB);
 
-// Función para obtener la lista de carpetas en el directorio actual
-function getDirectories(srcPath) {
-    return fs.readdirSync(srcPath)
-        .filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
-}
+fs.readdir(process.env.DB_CLIENT_LIB, (err, files) => {
+    if (err) {
+        console.error('Error al leer el directorio:', err);
+        return;
+    }
 
-// Directorio actual
-const currentPath = __dirname;
-
-// Obtener la lista de carpetas
-const directories = getDirectories(currentPath);
-
-// Imprimir la lista de carpetas
-console.log(directories);
+    console.log('Archivos en el directorio:');
+    files.forEach(file => {
+        console.log(file);
+    });
+});
 
 
 
 async function iniciar() {
     try {
         //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
-        await database.initialize()
+        //await database.initialize()
         await webServer.initialize()
     } catch (error) {
         console.log(error);
