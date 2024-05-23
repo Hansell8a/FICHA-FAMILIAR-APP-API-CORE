@@ -17,10 +17,6 @@ unzip -o oracle_linux.zip -d /opt/render/project/
 # Establecer la ruta de Oracle Instant Client
 ORACLE_INSTANT_CLIENT_PATH=/opt/render/project/oracle/instantclient_19_23
 
-echo "Actualizando el sistema e instalando libaio1..."
-yum install libaio
-sh -c "echo /opt/render/project/oracle/instantclient_19_23 > \ /etc/ld.so.conf.d/oracle-instantclient.conf"
-ldconfig
 
 # Exportar las variables de entorno de forma segura
 if [ -z "$LD_LIBRARY_PATH" ]; then
@@ -36,9 +32,9 @@ export PATH=/opt/oracle/instantclient_21_1:$PATH
 echo "LD_LIBRARY_PATH configurado como: $LD_LIBRARY_PATH"
 echo "ORACLE_HOME configurado como: $ORACLE_HOME"
 
-# Instalar libaio1 localmente si necesario (en Render.com no es necesario sudo)
-#echo "Actualizando el sistema e instalando libaio1..."
-#apt-get install -y libaio1
+
+echo "Actualizando el sistema e instalando libaio..."
+apt-get update && apt-get install -y libaio1
 
 if [ $? -eq 0 ]; then
     echo "libaio1 instalado correctamente."
