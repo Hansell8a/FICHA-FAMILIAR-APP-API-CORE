@@ -72,7 +72,7 @@ function initialize() {
                 console.log("**********************");
                 console.log("* SALUD FAMILIAR API *");
                 console.log("*    version 0.1     *");
-                console.log("* hecho en nicaragua *");
+                //console.log("* hecho en nicaragua *");
                 console.log("**********************");
                 console.log(colorReset,"");
 
