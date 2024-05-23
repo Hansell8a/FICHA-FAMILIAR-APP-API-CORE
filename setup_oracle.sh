@@ -1,10 +1,13 @@
 #!/bin/bash
+# Instalar dependencias de npm
+echo "Instalando dependencias de npm..."
+npm install
 
 echo "Descomprimiendo Oracle Instant Client..."
 unzip -o oracle_linux.zip -d /opt/render/project/
 
 # Establecer la ruta de Oracle Instant Client
-ORACLE_INSTANT_CLIENT_PATH=/opt/render/project/oracle/instantclient_19ffff_23
+ORACLE_INSTANT_CLIENT_PATH=/opt/render/project/oracle/instantclient_19_23
 
 # Exportar las variables de entorno de forma segura
 if [ -z "$LD_LIBRARY_PATH" ]; then
@@ -52,10 +55,6 @@ chmod 755 $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
 # Verificar los permisos después de ajustar
 echo "Permisos después de ajustar:"
 #ls -l $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so
-
-# Instalar dependencias de npm
-echo "Instalando dependencias de npm..."
-npm install
 
 if [ $? -eq 0 ]; then
     echo "Dependencias de npm instaladas correctamente."
