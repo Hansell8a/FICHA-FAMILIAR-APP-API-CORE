@@ -7,13 +7,13 @@ console.log(process.env.DB_CLIENT_LIB);
 
 fs.readdir(process.env.DB_CLIENT_LIB, (err, files) => {
     if (err) {
-        console.error('Error al leer el directorio:', err);
+       // console.error('Error al leer el directorio:', err);
         return;
     }
 
     console.log('Archivos en el directorio:');
     files.forEach(file => {
-        console.log(file);
+        //console.log(file);
     });
 });
 
@@ -22,7 +22,7 @@ fs.readdir(process.env.DB_CLIENT_LIB, (err, files) => {
 async function iniciar() {
     try {
         //process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
-        //await database.initialize();
+        await database.initialize();
         await webServer.initialize();
     } catch (error) {
         console.log(error);

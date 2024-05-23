@@ -4,9 +4,9 @@ var reponseMessage = require("../common/response-message");
 var responseHttp = require("../common/response-template");
 const { CODE } = require('../common/http-status-code');
 const { response } = require('express');
-/* oracledb.initOracleClient({
+oracledb.initOracleClient({
   libDir: process.env.DB_CLIENT_LIB
-}) */
+})
 oracledb.autoCommit = true
 let pool
 let outputFormat = {
