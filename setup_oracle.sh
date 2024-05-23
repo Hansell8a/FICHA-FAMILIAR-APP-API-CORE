@@ -1,25 +1,10 @@
 #!/bin/bash
 
-# Verificar los permisos de libnnz19.so
-echo "Verificando los permisos de libnnz19.so..."
-ls -l /opt/
-
-# Ajustar permisos si es necesario
-chmod 755 /opt/
-
-# Verificar los permisos después de ajustar
-echo "Permisos después de ajustar:"
-ls -l /opt/
-
-
-
-
-
 echo "Descomprimiendo Oracle Instant Client..."
-unzip -o oracle_linux.zip -d /opt/
+unzip -o oracle_linux.zip -d /opt/render/
 
 # Establecer la ruta de Oracle Instant Client
-ORACLE_INSTANT_CLIENT_PATH=/opt/oracle/instantclient_19_19
+ORACLE_INSTANT_CLIENT_PATH=/opt/render/oracle/instantclient_19_19
 
 # Exportar las variables de entorno de forma segura
 if [ -z "$LD_LIBRARY_PATH" ]; then
@@ -78,6 +63,9 @@ else
     #exit 1
 fi
 
+ls ./
+
 echo "Configuración completada con éxito."
+
 
 
