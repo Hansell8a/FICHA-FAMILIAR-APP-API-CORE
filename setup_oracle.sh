@@ -17,6 +17,10 @@ unzip -o oracle_linux.zip -d /opt/render/project/
 # Establecer la ruta de Oracle Instant Client
 ORACLE_INSTANT_CLIENT_PATH=/opt/render/project/oracle/instantclient_19_23
 
+sudo yum install libaio
+sudo sh -c "echo /opt/render/project/oracle/instantclient_19_23 > \ /etc/ld.so.conf.d/oracle-instantclient.conf"
+sudo ldconfig
+
 # Exportar las variables de entorno de forma segura
 if [ -z "$LD_LIBRARY_PATH" ]; then
     export LD_LIBRARY_PATH=$ORACLE_INSTANT_CLIENT_PATH
@@ -26,6 +30,7 @@ fi
 
 #export LD_LIBRARY_PATH=$ORACLE_INSTANT_CLIENT_PATH:$LD_LIBRARY_PATH
 export ORACLE_HOME=$ORACLE_INSTANT_CLIENT_PATH
+export PATH=/opt/oracle/instantclient_21_1:$PATH
 
 echo "LD_LIBRARY_PATH configurado como: $LD_LIBRARY_PATH"
 echo "ORACLE_HOME configurado como: $ORACLE_HOME"
