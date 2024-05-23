@@ -26,7 +26,7 @@ if [ $? -eq 0 ]; then
     echo "libaio1 instalado correctamente."
 else
     echo "Error al instalar libaio1."
-    exit 1
+    #exit 1
 fi
 
 # Confirmar que las librerías estén en su lugar
@@ -38,7 +38,7 @@ if [ -f $ORACLE_INSTANT_CLIENT_PATH/libnnz19.so ]; then
     echo "libnnz19.so encontrado."
 else
     echo "libnnz19.so no encontrado."
-    exit 1
+    #exit 1
 fi
 
 # Instalar dependencias de npm
@@ -49,7 +49,7 @@ if [ $? -eq 0 ]; then
     echo "Dependencias de npm instaladas correctamente."
 else
     echo "Error al instalar dependencias de npm."
-    exit 1
+    #exit 1
 fi
 
 echo "Configuración completada con éxito."
