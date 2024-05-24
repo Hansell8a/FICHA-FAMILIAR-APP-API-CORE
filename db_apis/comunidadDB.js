@@ -15,10 +15,7 @@ module.exports.obtener = (parametros,method) => {
                 `:pIdAS,` +
                 `:pIdDS,` +
                 `:pIdTs,` +
-                `:pIdCc,` +
-                `:pIdDepartamento,` +
-                `:pIdMunicipio,` +
-                `:pIdLp,` +
+                `:pIdSec,` +
                 /** */
                 `:pCursor,` +
                 `:pSmsError,` +
@@ -42,25 +39,10 @@ module.exports.obtener = (parametros,method) => {
                     type: oracledb.NUMBER,
                     val: parametros.id_ts
                 },
-                pIdCc: {
+                pIdSec: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_cc
-                },
-                pIdDepartamento: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_departamento
-                },
-                pIdMunicipio: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_municipio
-                },
-                pIdLp: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_lp
+                    val: parametros.id_sector
                 },
                 /** */
                 pCursor: {
