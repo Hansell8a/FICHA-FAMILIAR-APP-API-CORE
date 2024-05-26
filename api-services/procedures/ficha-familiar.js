@@ -52,5 +52,11 @@ exports.PROCEDURES = {
         INSERTAR:   'sp_insertar_vivienda_identificacion',
         ACTUALIZAR: 'sp_actualizar_vivienda_identificacion',
         ELIMINAR:   'sp_eliminar_vivienda_identificacion'
+    },
+    FAMILIA:{
+        OBTENER:    'sp_obtener_familia',
+        INSERTAR:   'sp_insertar_familia',
+        ACTUALIZAR: 'sp_actualizar_familia',
+        ELIMINAR:   'sp_eliminar_familia'
     }
 }
