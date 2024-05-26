@@ -41,6 +41,7 @@ var personaController = require('../controllers/personaController');
 var viviendaCaracteristicasController = require('../controllers/viviendaCaracteristicasController');
 var sectorController = require('../controllers/sectorController');
 var viviendaIdentifiacionController = require('../controllers/viviendaIdentifiacionController');
+var familiaController = require('../controllers/familiaController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -84,5 +85,8 @@ router.use('/persona', personaController);
 router.use('/vivienda-caracteristicas', viviendaCaracteristicasController);
 router.use('/sector', sectorController);
 router.use('/vivienda-identificacion', viviendaIdentifiacionController);
+router.use('/familia', familiaController);
+
+
 
 module.exports = router
