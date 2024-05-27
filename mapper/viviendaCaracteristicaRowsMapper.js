@@ -17,7 +17,7 @@ exports.rowMapper = async (outBinds) => {
                 const objeto = {
                     id_vivienda_caracteristicas: element.ID_VIVIENDA_CARACTERISTICA,
                     id_ficha_familiar: element.ID_FICHA_FAMILIAR,
-                    habitada: element.HABITADA == 1? true: false,
+                    habitada: element.HABITADA == 1? 1: 0,
                     id_tenencia_vivienda: element.ID_TENENCIA_VIVIENDA,
                     id_tipo_vivienda: element.ID_TIPO_VIVIENDA,
                     id_material_pared: element.ID_MATERIAL_PARED,
@@ -30,7 +30,7 @@ exports.rowMapper = async (outBinds) => {
                     id_fuente_cocina: element.ID_FUENTE_COCINA,
                     id_ubicacion_cocina: element.ID_UBICACION_COCINA,
                     id_tipo_cocina: element.ID_TIPO_COCINA,
-                    recipiente_agua_reposada: element.RECIPIENTE_AGUA_REPOSADA == 1? true: false,
+                    recipiente_agua_reposada: element.RECIPIENTE_AGUA_REPOSADA == 1? 1: 0,
                     total_vivienda_familia: element.TOTAL_VIVIENDA_FAMILIA,
                     total_vivienda_persona: element.TOTAL_VIVIENDA_PERSONA,
                     total_vivienda_cuarto: element.TOTAL_VIVIENDA_CUARTO,
