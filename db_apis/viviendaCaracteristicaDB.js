@@ -180,7 +180,7 @@ module.exports.insertar = (parametros, method) => {
                 pTotalViviendaFamilia: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.total_vivienda_familiar
+                    val: parametros.total_vivienda_familia
                 },
                 pTotalViviendaPersona: {
                     dir: oracledb.BIND_IN,
@@ -348,7 +348,7 @@ module.exports.actualizar = (parametros, method) => {
                 pTotalViviendaFamilia: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.total_vivienda_familiar
+                    val: parametros.total_vivienda_familia
                 },
                 pTotalViviendaPersona: {
                     dir: oracledb.BIND_IN,
