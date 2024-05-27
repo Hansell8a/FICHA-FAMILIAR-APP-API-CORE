@@ -135,7 +135,7 @@ module.exports.insertar = (parametros, method) => {
                 pIdMaterialTecho: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_meterial_techo
+                    val: parametros.id_material_techo
                 },
                 pIdAbastecimientoAgua: {
                     dir: oracledb.BIND_IN,
@@ -303,7 +303,7 @@ module.exports.actualizar = (parametros, method) => {
                 pIdMaterialTecho: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_meterial_techo
+                    val: parametros.id_material_techo
                 },
                 pIdAbastecimientoAgua: {
                     dir: oracledb.BIND_IN,
