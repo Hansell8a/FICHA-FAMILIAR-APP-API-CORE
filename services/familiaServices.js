@@ -57,7 +57,6 @@ exports.actualizar = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            console.log(objeto);
             var reponse = oraServices.actualizar(objeto, method);
             return resolve(reponse);
         } catch (ex) {
