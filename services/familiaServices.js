@@ -42,7 +42,7 @@ exports.obtener = (req, parametros, method) => {
                     }, method);
                     objetoFamilia.integrantes = familiaIntergranteResponse.data;
                     arrFamilia.push(objetoFamilia);
-                    console.log(arrFamilia);
+                    //console.log(arrFamilia);
                 };
             }
             //console.log(arrFamilia);
