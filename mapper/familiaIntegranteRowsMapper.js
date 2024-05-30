@@ -15,6 +15,7 @@ exports.rowMapper = async (outBinds) => {
             const rows = JSON.parse(data);
             rows.forEach(function (element) {
                 const objeto = {
+                    cui: element.CUI,
                     id_familia_integrante: element.ID_FAMILIA_INTEGRANTE,
                     id_familia: element.ID_FAMILIA,
                     id_persona: element.ID_PERSONA,

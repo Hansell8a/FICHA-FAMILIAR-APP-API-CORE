@@ -16,7 +16,7 @@ exports.obtener = (req, parametros, method) => {
                 fecha_registro: null
             }
             var reponse = await oraServices.obtener(objeto, method);
-            const personaOra  = reponse.data;
+/*             const personaOra  = reponse.data;
             if (personaOra.length == 0) {
                 let body = {
                     cui: parametros.cui ? parametros.cui : 0
@@ -25,6 +25,7 @@ exports.obtener = (req, parametros, method) => {
                     'Content-Type': 'application/json',
                     'Authorization': 'Basic '+process.env.RENAP_BASIC_AUTH
                 }
+                console.log('aqui');
                 await axios.post(`${process.env.RENAP_URL}`, body,{
                     headers: headersds
                 }).then(function (response) {
@@ -68,8 +69,8 @@ exports.obtener = (req, parametros, method) => {
                 });             
             } else {
                 return resolve(reponse);
-            }
-            
+            } */
+            return resolve(reponse);
         } catch (ex) {
             return reject(ex);
         }
