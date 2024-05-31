@@ -43,6 +43,9 @@ var sectorController = require('../controllers/sectorController');
 var viviendaIdentifiacionController = require('../controllers/viviendaIdentifiacionController');
 var familiaController = require('../controllers/familiaController');
 
+var sexoController = require('../controllers/sexoController');
+var puebloController = require('../controllers/puebloController');
+
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
 router.use('/abastecimiento-agua', abastecimientoAguaController);
@@ -87,6 +90,8 @@ router.use('/sector', sectorController);
 router.use('/vivienda-identificacion', viviendaIdentifiacionController);
 router.use('/familia', familiaController);
 
+router.use('/sexo', sexoController);
+router.use('/pueblo', puebloController);
 
 
 module.exports = router

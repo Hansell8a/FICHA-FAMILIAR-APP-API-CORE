@@ -163,6 +163,12 @@ exports.PROCEDURES = {
     },
     SECTOR: {
         OBTENER: 'sp_obtener_sector'
+    },
+    SEXO: {
+        OBTENER: 'sp_obtener_sexo'
+    },
+    PUEBLO: {
+        OBTENER: 'sp_obtener_pueblo'
     }
 }
 
