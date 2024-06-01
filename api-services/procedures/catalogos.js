@@ -169,6 +169,12 @@ exports.PROCEDURES = {
     },
     PUEBLO: {
         OBTENER: 'sp_obtener_pueblo'
+    },
+    ESTADO_CIVIL: {
+        OBTENER: 'sp_obtener_estado_civil'
+    },
+    DISCAPACIDAD: {
+        OBTENER: 'sp_obtener_discapacidad'
     }
 }
 

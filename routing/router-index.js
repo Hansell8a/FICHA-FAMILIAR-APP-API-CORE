@@ -45,6 +45,8 @@ var familiaController = require('../controllers/familiaController');
 
 var sexoController = require('../controllers/sexoController');
 var puebloController = require('../controllers/puebloController');
+var estadoCivilController = require('../controllers/estadoCivilController');
+var discapacidadControlller = require('../controllers/discapacidadControlller');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -93,5 +95,7 @@ router.use('/familia', familiaController);
 router.use('/sexo', sexoController);
 router.use('/pueblo', puebloController);
 
+router.use('/estado-civil', estadoCivilController);
+router.use('/discapacidad', discapacidadControlller);
 
 module.exports = router
