@@ -175,6 +175,18 @@ exports.PROCEDURES = {
     },
     DISCAPACIDAD: {
         OBTENER: 'sp_obtener_discapacidad'
+    },
+    COMUNIDAD_LINGUISTICA: {
+        OBTENER: 'sp_obtener_comunidad_linguistica'
+    },
+    ESCOLARIDAD: {
+        OBTENER: 'sp_obtener_escolaridad'
+    },
+    OCUPACION: {
+        OBTENER: 'sp_obtener_ocupacion'
+    },
+    MIGRANTE: {
+        OBTENER: 'sp_obtener_migrante'
     }
 }
 

@@ -42,11 +42,15 @@ var viviendaCaracteristicasController = require('../controllers/viviendaCaracter
 var sectorController = require('../controllers/sectorController');
 var viviendaIdentifiacionController = require('../controllers/viviendaIdentifiacionController');
 var familiaController = require('../controllers/familiaController');
-
 var sexoController = require('../controllers/sexoController');
 var puebloController = require('../controllers/puebloController');
 var estadoCivilController = require('../controllers/estadoCivilController');
 var discapacidadControlller = require('../controllers/discapacidadControlller');
+var escolaridadController = require('../controllers/escolaridadController');
+var comunidadLinguisticaController = require('../controllers/comunidadLinguisticaController');
+
+var ocupacionController = require('../controllers/ocupacionController');
+var migranteController = require('../controllers/migranteController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -91,11 +95,14 @@ router.use('/vivienda-caracteristicas', viviendaCaracteristicasController);
 router.use('/sector', sectorController);
 router.use('/vivienda-identificacion', viviendaIdentifiacionController);
 router.use('/familia', familiaController);
-
 router.use('/sexo', sexoController);
 router.use('/pueblo', puebloController);
-
 router.use('/estado-civil', estadoCivilController);
 router.use('/discapacidad', discapacidadControlller);
+router.use('/escolaridad', escolaridadController);
+router.use('/comunidad-linguistica', comunidadLinguisticaController);
+
+router.use('/ocupacion', ocupacionController);
+router.use('/migrante', migranteController);
 
 module.exports = router
