@@ -10,6 +10,10 @@ const {
     rowMapper
 } = require('../mapper/viviendaCaracteristicaRowsMapper');
 
+const {
+    rowMapperDetalle
+} = require('../mapper/viviendaCaracteristicaRowsMapper');
+
 module.exports.obtener = (parametros, method) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -75,7 +79,6 @@ module.exports.insertar = (parametros, method) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.VIVIENDA_CARACTERISTICA.INSERTAR}(` +
                 `:pIdFichaFamiliar,` +
-                `:pHabitada,` +
                 `:pIdTenenciaVivienda,` +
                 `:pIdTipoVivienda,` +
                 `:pIdMaterialPared,` +
@@ -106,11 +109,6 @@ module.exports.insertar = (parametros, method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_ficha_familiar
-                },
-                pHabitada: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.habitada
                 },
                 pIdTenenciaVivienda: {
                     dir: oracledb.BIND_IN,
@@ -238,7 +236,6 @@ module.exports.actualizar = (parametros, method) => {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.VIVIENDA_CARACTERISTICA.ACTUALIZAR}(` +
                 `:pIdViviendaCaracteristica,` +
                 `:pIdFichaFamiliar,` +
-                `:pHabitada,` +
                 `:pIdTenenciaVivienda,` +
                 `:pIdTipoVivienda,` +
                 `:pIdMaterialPared,` +
@@ -274,11 +271,6 @@ module.exports.actualizar = (parametros, method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_ficha_familiar
-                },
-                pHabitada: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.habitada
                 },
                 pIdTenenciaVivienda: {
                     dir: oracledb.BIND_IN,
@@ -447,6 +439,54 @@ module.exports.eliminar = (parametros, method) => {
                 }
             };
             let result = await ejecutarPackage(plsql, binds, rowMapper, method);
+            return resolve(result);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
+
+module.exports.insertarDetalleUnificado = (parametros, method) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.VIVIENDA_CARACTERISTICA.INSERTAR_DETALLE_UNIFICADO}(` +
+                `:pJson,` +
+                /** */
+                `:pCursor,` +
+                `:pSmsError,` +
+                `:pSmsMensaje,` +
+                `:pSmsErrorLog,` +
+                `:pSmsMensajeLog` +
+                `)`;
+            var binds = {
+                pJson: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.CLOB,
+                    val: parametros.json
+                },
+                /** */
+                pCursor: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.CURSOR
+                },
+                pSmsError: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsMensaje: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsErrorLog: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsMensajeLog: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                }
+            };
+            let result = await ejecutarPackage(plsql, binds, rowMapperDetalle, method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);

@@ -30,6 +30,7 @@ exports.rowMapper = async (outBinds) => {
                     id_c: element.IDC,
                     id_territorio: element.ID_TERRITORIO,
                     id_sector: element.ID_SECTOR,
+                    vivienda_habitada: element.VIVIENDA_HABITADA,
                     /** */
                     estado_registro: element.ESTADO_REGISTRO,
                     id_usuario_registro: element.ID_USUARIO_REGISTRO,
