@@ -28,7 +28,6 @@ exports.insertar = (req, parametros, method) => {
             var usuario = obtenerUsuario(req);
             const objeto = {
                 id_ficha_familiar:  parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
-                habitada:  parametros.habitada == true ? 1 : 0,
                 id_tenencia_vivienda:  parametros.id_tenencia_vivienda ? parseInt(parametros.id_tenencia_vivienda) : 0,
                 id_tipo_vivienda:  parametros.id_tipo_vivienda ? parseInt(parametros.id_tipo_vivienda) : 0,
                 id_material_pared:  parametros.id_material_pared ? parseInt(parametros.id_material_pared) : 0,

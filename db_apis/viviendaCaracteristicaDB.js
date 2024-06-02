@@ -75,7 +75,6 @@ module.exports.insertar = (parametros, method) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.VIVIENDA_CARACTERISTICA.INSERTAR}(` +
                 `:pIdFichaFamiliar,` +
-                `:pHabitada,` +
                 `:pIdTenenciaVivienda,` +
                 `:pIdTipoVivienda,` +
                 `:pIdMaterialPared,` +
@@ -106,11 +105,6 @@ module.exports.insertar = (parametros, method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_ficha_familiar
-                },
-                pHabitada: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.habitada
                 },
                 pIdTenenciaVivienda: {
                     dir: oracledb.BIND_IN,

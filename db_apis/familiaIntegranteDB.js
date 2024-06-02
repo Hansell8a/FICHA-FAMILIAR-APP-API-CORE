@@ -340,7 +340,6 @@ module.exports.insertar = (parametros, method) => {
                     type: oracledb.STRING
                 }
             };
-            console.log(binds);
             let result = await ejecutarPackage(plsql, binds, rowMapper, method);
             return resolve(result);
         } catch (ex) {
@@ -571,7 +570,6 @@ module.exports.actualizar = (parametros, method) => {
                     type: oracledb.STRING
                 }
             };
-            console.log(binds);
             let result = await ejecutarPackage(plsql, binds, rowMapper, method);
             return resolve(result);
         } catch (ex) {
