@@ -89,7 +89,7 @@ module.exports.insertar = (parametros, method) => {
                 `:pIdc,` +
                 `:pIdTerritorio,` +
                 `:pIdSector,` +
-                `:pViviendaHabitada` +
+                `:pViviendaHabitada,`+
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -174,10 +174,11 @@ module.exports.insertar = (parametros, method) => {
                     type: oracledb.NUMBER,
                     val: parametros.id_sector
                 },
-                pViviendaHabitada: {
+                pViviendaHabitada: 
+                {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.vivienda_habitada
+                    val: parametros.habitada
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,

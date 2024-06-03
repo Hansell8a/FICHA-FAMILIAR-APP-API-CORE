@@ -147,7 +147,6 @@ function reponse_api(reponse,method) {
     return responseHttp;
   }
   if (!reponse.smsError && reponse.registros.length == 0 && method != "GET") {
-    console.log('aqui');
     responseHttp.status = CODE.CONFLICT;
     responseHttp.success = false;
     responseHttp.message = reponse.smsMensaje;
