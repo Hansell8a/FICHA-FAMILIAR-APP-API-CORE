@@ -82,7 +82,8 @@ exports.rowMapperDetalle = async (outBinds) => {
                     observacion: element.observacion,
                     estado_registro: element.estado_registro,
                     id_usuario_registro: element.id_usuario_registro,
-                    fecha_registro: element.fecha_registro
+                    fecha_registro: element.fecha_registro,
+                    activo: element.activo
                 };
                 lista.tratamientoAguaResidual.push(objeto);
             }, this);
@@ -95,7 +96,8 @@ exports.rowMapperDetalle = async (outBinds) => {
                     observacion: element.observacion,
                     estado_registro: element.estado_registro,
                     id_usuario_registro: element.id_usuario_registro,
-                    fecha_registro: element.fecha_registro
+                    fecha_registro: element.fecha_registro,
+                    activo: element.activo
                 };
                 lista.tratamientoBasura.push(objeto);
             }, this);
@@ -108,7 +110,8 @@ exports.rowMapperDetalle = async (outBinds) => {
                     observacion: element.observacion,
                     estado_registro: element.estado_registro,
                     id_usuario_registro: element.id_usuario_registro,
-                    fecha_registro: element.fecha_registro
+                    fecha_registro: element.fecha_registro,
+                    activo: element.activo
                 };
                 lista.equipamientoVivienda.push(objeto);
             }, this);
@@ -124,7 +127,8 @@ exports.rowMapperDetalle = async (outBinds) => {
                     vacunado: element.vacunado,
                     estado_registro: element.estado_registro,
                     id_usuario_registro: element.id_usuario_registro,
-                    fecha_registro: element.id_usuario_registro
+                    fecha_registro: element.id_usuario_registro,
+                    activo: element.activo
                 };
                 lista.animalDomestico.push(objeto);
             }, this);
