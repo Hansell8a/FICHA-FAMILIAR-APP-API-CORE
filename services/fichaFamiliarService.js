@@ -89,6 +89,7 @@ exports.insertar_unificado = (req, parametros, method) => {
                     id_c: parametros.id_c? (parametros.id_c).toString() : '0',
                     id_territorio: parametros.id_territorio,
                     id_sector: parametros.id_sector,
+                    vivienda_habitada: parametros.vivienda_habitada == true ? 1:0,
                     /** */
                     id_usuario_registro: usuario.idUsuario,
                     estado_registro: null,
