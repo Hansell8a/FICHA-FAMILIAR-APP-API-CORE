@@ -37,6 +37,7 @@ exports.PROCEDURES = {
     },
     FICHA_FAMILIAR: {
         OBTENER: 'sp_obtener_ficha_familiar',
+        OBTENER_INFORMACION: 'sp_obtener_informacion_ficha_familiar',
         INSERTAR: 'sp_insertar_ficha_familiar',
         ACTUALIZAR: 'sp_actualizar_ficha_familiar',
         ELIMINAR: 'sp_eliminar_ficha_familiar'

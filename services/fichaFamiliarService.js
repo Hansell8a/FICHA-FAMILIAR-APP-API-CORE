@@ -152,3 +152,22 @@ exports.eliminar = (req, parametros, method) => {
         }
     });
 }
+
+
+exports.obtenerInformacion = (req, parametros, method) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const objeto = {
+                id_ficha_familiar: parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
+                /** */
+                id_usuario_registro: 0,
+                estado_registro: null,
+                fecha_registro: null
+            }
+            var reponse = oraServices.obtenerInformacion(objeto, method);
+            return resolve(reponse);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
