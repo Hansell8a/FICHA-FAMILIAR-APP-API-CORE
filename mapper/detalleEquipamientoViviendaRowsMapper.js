@@ -18,6 +18,7 @@ exports.rowMapper = async (outBinds) => {
                     id_detalle_equipamiento_vivienda: element.ID_DETALLE_EQUIPAMIENTO_VIVIENDA,
                     id_vivienda_caracteristica: element.ID_VIVIENDA_CARACTERISTICA,
                     id_equipamiento_vivienda: element.ID_EQUIPAMIENTO_VIVIENDA,
+                    nombre_equipamiento_vivienda: element.DESCRIPCION,
                     observacion: element.OBSERVACION,
                     /** */
                     estado_registro: element.ESTADO_REGISTRO,
