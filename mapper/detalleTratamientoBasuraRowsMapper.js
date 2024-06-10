@@ -18,6 +18,7 @@ exports.rowMapper = async (outBinds) => {
                     id_detalle_tratamiento_basura: element.ID_DETALLE_TRATAMIENTO_BASURA,
                     id_vivienda_caracteristica: element.ID_VIVIENDA_CARACTERISTICA,
                     id_tratamiento_basura: element.ID_TRATAMIENTO_BASURA,
+                    nombre_tratamiento_basura: element.DESCRIPCION,
                     observacion: element.OBSERVACION,
                     /** */
                     estado_registro: element.ESTADO_REGISTRO,

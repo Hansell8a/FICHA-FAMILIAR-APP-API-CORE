@@ -13,8 +13,8 @@ module.exports.obtener = (parametros,method) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.PARENTESCO.OBTENER}(` +
                 `:pIdParentesco,` +
-                `:pDescripcion,` +
-                `:pIdUsuarioRegistro,` +
+                //`:pDescripcion,` +
+                //`:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
                 `:pSmsError,` +
@@ -28,7 +28,7 @@ module.exports.obtener = (parametros,method) => {
                     type: oracledb.NUMBER,
                     val: parametros.id_parentesco
                 },
-                pDescripcion: {
+/*                 pDescripcion: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.STRING,
                     val: parametros.descripcion
@@ -37,7 +37,7 @@ module.exports.obtener = (parametros,method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_usuario_registro
-                },
+                }, */
                 /** */
                 pCursor: {
                     dir: oracledb.BIND_OUT,

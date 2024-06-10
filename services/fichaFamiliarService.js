@@ -159,6 +159,7 @@ exports.obtenerInformacion = (req, parametros, method) => {
         try {
             const objeto = {
                 id_ficha_familiar: parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
+                cui: parametros.cui ? parseInt(parametros.cui) : 0,
                 /** */
                 id_usuario_registro: 0,
                 estado_registro: null,

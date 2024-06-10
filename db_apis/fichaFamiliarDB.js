@@ -274,6 +274,7 @@ module.exports.obtenerInformacion = (parametros, method) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FICHA_FAMILIAR.OBTENER_INFORMACION}(` +
                 `:pIdFichaFamiliar,` +
+                `:pCui,` +
                 /** */
                 `:pCursor,` +
                 `:pSmsError,` +
@@ -286,6 +287,11 @@ module.exports.obtenerInformacion = (parametros, method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_ficha_familiar
+                },
+                pCui: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.cui
                 },
                 /** */
                 pCursor: {

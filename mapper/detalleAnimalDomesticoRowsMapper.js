@@ -18,6 +18,7 @@ exports.rowMapper = async (outBinds) => {
                     id_detalle_animal_domestico: element.ID_DETALLE_ANIMAL_DOMESTICO,
                     id_vivienda_caracteristica: element.ID_VIVIENDA_CARACTERISTICA,
                     id_tipo_animal: element.ID_TIPO_ANIMAL,
+                    nombre_animal: element.DESCRIPCION,
                     cantidad: element.CANTIDAD,
                     vive_dentro: element.VIVE_DENTRO == 1? true:false,
                     condicion_adecuada: element.CONDICION_ADECUADA == 1? true:false,
