@@ -85,11 +85,11 @@ exports.insertar_unificado = (req, parametros, method) => {
                     id_as: (parametros.id_as).toString(),
                     id_ds: (parametros.id_ds).toString(),
                     id_ts: (parametros.id_ts).toString(),
-                    id_cc: parametros.id_cc? (parametros.id_cc).toString() : '0',
-                    id_c: parametros.id_c? (parametros.id_c).toString() : '0',
+                    id_cc: parametros.id_cc ? (parametros.id_cc).toString() : '0',
+                    id_c: parametros.id_c ? (parametros.id_c).toString() : '0',
                     id_territorio: parametros.id_territorio,
                     id_sector: parametros.id_sector,
-                    vivienda_habitada: parametros.vivienda_habitada == true ? 1:0,
+                    vivienda_habitada: parametros.vivienda_habitada == true ? 1 : 0,
                     /** */
                     id_usuario_registro: usuario.idUsuario,
                     estado_registro: null,
@@ -177,6 +177,38 @@ exports.obtenerInformacion = (req, parametros, method) => {
 
             reponse.data = arr;
 
+            return resolve(reponse);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
+exports.obtenerRegistroFamilia = (req, parametros, method) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const jsonObject = {
+                pIdFichaFamiliar: parseInt(parametros.pIdFichaFamiliar),
+                pIdViviendaIdentificacion: parseInt(parametros.pIdViviendaIdentificacion),
+                pCui: parseInt(parametros.pCui),
+                pNoIdentificacion: parametros.pNoIdentificacion,
+                pIdEstadoFicha: parseInt(parametros.pIdEstadoFicha),
+                pPrimerNombre: parametros.pPrimerNombre,
+                pSegundoNombre: parametros.pSegundoNombre,
+                pTercerNombre: parametros.pTercerNombre,
+                pPrimerApellido: parametros.pPrimerApellido,
+                pSegundoApellido: parametros.pSegundoApellido,
+                pIdDepartamento: parseInt(parametros.pIdDepartamento),
+                pIdMunicipio: parseInt(parametros.pIdMunicipio)
+            };
+
+            const objeto = {
+                pJsonParametroFiltro: JSON.stringify(jsonObject),
+                /** */
+                id_usuario_registro: 0,
+                estado_registro: null,
+                fecha_registro: null
+            };
+            var reponse = oraServices.obtenerRegistroFamilia(objeto, method);
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);

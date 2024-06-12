@@ -28,6 +28,17 @@ router.get('/informacion', (req, res, next) => {
     });
 });
 
+router.get('/registro-familia', (req, res, next) => {
+    services.obtenerRegistroFamilia(req,req.query,"GET").then((response) => {
+        if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));}
+        else {res.status(response.status).send(response);}
+    }, (error) => {
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(error));
+    }).catch((ex) => {
+        res.status(CODE.INTERNAL_SERVER_ERROR).send(manejarErrorRequest(ex));
+    });
+});
+
 router.post('/', (req, res, next) => {
     services.insertar(req,req.body,"POST").then((response) => {
         if(response.status != CODE.OK){res.status(response.status).send(manejarErrorRequest(response));} 
