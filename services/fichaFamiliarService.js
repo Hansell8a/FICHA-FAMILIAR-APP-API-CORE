@@ -155,7 +155,7 @@ exports.eliminar = (req, parametros, method) => {
 
 
 exports.obtenerInformacion = (req, parametros, method) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             const objeto = {
                 id_ficha_familiar: parametros.id_ficha_familiar ? parseInt(parametros.id_ficha_familiar) : 0,
@@ -165,7 +165,18 @@ exports.obtenerInformacion = (req, parametros, method) => {
                 estado_registro: null,
                 fecha_registro: null
             }
-            var reponse = oraServices.obtenerInformacion(objeto, method);
+            var reponse = await oraServices.obtenerInformacion(objeto, method);
+
+            let arr = [];
+            reponse.data.forEach(element => {
+                const cont = arr.filter(ele => ele.id_estado_ficha == element.id_estado_ficha);
+                if(cont.length == 0){
+                    arr.push(element);
+                }
+            });
+
+            reponse.data = arr;
+
             return resolve(reponse);
         } catch (ex) {
             return reject(ex);
