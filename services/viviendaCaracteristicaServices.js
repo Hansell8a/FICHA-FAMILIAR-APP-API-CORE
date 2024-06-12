@@ -2,6 +2,10 @@ const {
     obtenerUsuario
 } = require('../api-services/auth');
 var oraServices = require("../db_apis/viviendaCaracteristicaDB");
+const {PACKAGES, PROCEDURES} = require("../api-services/procedures/ficha-familiar");
+const oracledb = require("oracledb");
+const {ejecutarPackage} = require("../api-services/database");
+const {rowMapperDetalle} = require("../mapper/viviendaCaracteristicaRowsMapper");
 
 exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
@@ -111,6 +115,54 @@ exports.eliminar = (req, parametros, method) => {
             }
             var reponse = oraServices.eliminar(objeto, method);
             return resolve(reponse);
+        } catch (ex) {
+            return reject(ex);
+        }
+    });
+}
+
+exports.insertarDetalleUnificado = (parametros, method) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.VIVIENDA_CARACTERISTICA.INSERTAR_DETALLE_UNIFICADO}(` +
+                `:pJson,` +
+                /** */
+                `:pCursor,` +
+                `:pSmsError,` +
+                `:pSmsMensaje,` +
+                `:pSmsErrorLog,` +
+                `:pSmsMensajeLog` +
+                `)`;
+            var binds = {
+                pJson: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.CLOB,
+                    val: parametros.json
+                },
+                /** */
+                pCursor: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.CURSOR
+                },
+                pSmsError: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsMensaje: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsErrorLog: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                },
+                pSmsMensajeLog: {
+                    dir: oracledb.BIND_OUT,
+                    type: oracledb.STRING
+                }
+            };
+            let result = await ejecutarPackage(plsql, binds, rowMapperDetalle, method);
+            return resolve(result);
         } catch (ex) {
             return reject(ex);
         }
