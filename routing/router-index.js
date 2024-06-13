@@ -48,9 +48,9 @@ var estadoCivilController = require('../controllers/estadoCivilController');
 var discapacidadControlller = require('../controllers/discapacidadControlller');
 var escolaridadController = require('../controllers/escolaridadController');
 var comunidadLinguisticaController = require('../controllers/comunidadLinguisticaController');
-
 var ocupacionController = require('../controllers/ocupacionController');
 var migranteController = require('../controllers/migranteController');
+var reportesController = require('../controllers/reportesController');
 
 ///Declaracion de rutas
 router.use('/catalogos', catalogosController);
@@ -101,8 +101,10 @@ router.use('/estado-civil', estadoCivilController);
 router.use('/discapacidad', discapacidadControlller);
 router.use('/escolaridad', escolaridadController);
 router.use('/comunidad-linguistica', comunidadLinguisticaController);
-
 router.use('/ocupacion', ocupacionController);
 router.use('/migrante', migranteController);
+
+router.use('/reportes', reportesController);
+
 
 module.exports = router
