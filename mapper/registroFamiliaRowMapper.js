@@ -27,7 +27,9 @@ exports.rowMapper = async (outBinds) => {
                     municipio: element.MUNICIPIO,
                     sector: element.SECTOR,
                     comunidad: element.COMUNIDAD,
-                    estado_ficha: element.ESTADO_FICHA
+                    estado_ficha: element.ESTADO_FICHA,
+                    id_estado_ficha: element.ID_ESTADO_FICHA,
+                    direccion: element.DIRECCION
                 };
                 lista.push(objeto);
             }, this);
