@@ -67,7 +67,11 @@ exports.insertar = (req, parametros, method) => {
                 migrante:                   parametros.migrante == true ? 1 : 0,
                 id_migrante:                parametros.id_migrante ? parseInt(parametros.id_migrante) : 0,
                 fallecido:                  parametros.fallecido == true ? 1 : 0,
-                id_proveedor_salud:         parametros.id_proveedor_salud ? parseInt(parametros.id_proveedor_salud) : 0,
+                embarazada:                 parametros.embarazada === true ? 1 : 0,
+                lactancia:                  parametros.lactancia === true ? 1 : 0,
+                id_antecedente_nutricional: parametros.id_antecedente_nutricional ? parseInt(parametros.id_antecedente_nutricional) : 0,
+                id_acceso_servicio_salud:   parametros.id_acceso_servicio_salud ? parseInt(parametros.id_acceso_servicio_salud) : 0,
+                enfermedad_cronica:         parametros.enfermedad_cronica === true ? 1 : 0,
                 /** */
                 id_usuario_registro: usuario.idUsuario
             }
@@ -79,7 +83,6 @@ exports.insertar = (req, parametros, method) => {
         }
     });
 }
-
 
 exports.actualizar = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
@@ -115,7 +118,11 @@ exports.actualizar = (req, parametros, method) => {
                 migrante:                   parametros.migrante == true ? 1 : 0,
                 id_migrante:                parametros.id_migrante ? parseInt(parametros.id_migrante) : 0,
                 fallecido:                  parametros.fallecido == true ? 1 : 0,
-                id_proveedor_salud:         parametros.id_proveedor_salud ? parseInt(parametros.id_proveedor_salud) : 0,
+                embarazada:                 parametros.embarazada === true ? 1 : 0,
+                lactancia:                  parametros.lactancia === true ? 1 : 0,
+                id_antecedente_nutricional: parametros.id_antecedente_nutricional ? parseInt(parametros.id_antecedente_nutricional) : 0,
+                id_acceso_servicio_salud:   parametros.id_acceso_servicio_salud ? parseInt(parametros.id_acceso_servicio_salud) : 0,
+                enfermedad_cronica:         parametros.enfermedad_cronica === true ? 1 : 0,
                 /** */
                 id_usuario_registro: usuario.idUsuario
             }

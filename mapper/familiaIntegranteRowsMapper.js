@@ -42,11 +42,16 @@ exports.rowMapper = async (outBinds) => {
                     id_escolaridad: element.ID_ESCOLARIDAD,
                     trabaja: element.TRABAJA == 1 ? true : false,
                     id_ocupacion: element.ID_OCUPACION,
-
                     migrante: element.MIGRANTE == 1 ? true : false,
                     id_migrante: element.ID_MIGRANTE,
                     fallecido: element.FALLECIDO == 1 ? true : false,
-                    id_proveedor_salud: element.ID_PROVEEDOR_SALUD,
+                    embarazada: element.EMBARAZADA === 1,
+                    lactancia: element.LACTANCIA === 1,
+                    id_antecedente_nutricional: element.ID_ANTECEDENTE_NUTRICIONAL,
+                    antecedente_nutricional: element.ANTECEDENTE_NUTRICIONAL,
+                    id_acceso_servicio_salud: element.ID_ACCESO_SERVICIO_SALUD,
+                    acceso_servicio_salud: element.ACCESO_SERVICIO_SALUD,
+                    enfermedad_cronica: element.ENFERMEDAD_CRONICA,
                     /** */
                     estado_registro: element.ESTADO_REGISTRO,
                     id_usuario_registro: element.ID_USUARIO_REGISTRO,

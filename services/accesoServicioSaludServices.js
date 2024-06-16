@@ -1,13 +1,13 @@
 const {
     obtenerUsuario
 } = require('../api-services/auth');
-var oraServices = require("../db_apis/proveedorSaludDB");
+var oraServices = require("../db_apis/accesoServicioSaludDB");
 
 exports.obtener = (req, parametros, method) => {
     return new Promise((resolve, reject) => {
         try {
             const objeto = {
-                id_proveedor_salud: parametros.id_proveedor_salud ? parseInt(parametros.id_proveedor_salud) : 0,
+                id_acceso_servicio_salud: parametros.id_acceso_servicio_salud ? parseInt(parametros.id_acceso_servicio_salud) : 0,
                 descripcion: parametros.descripcion ? parametros.descripcion : null,
                 id_usuario_registro: 0,
                 estado_registro: null,
@@ -26,7 +26,7 @@ exports.insertar = (req, parametros, method) => {
         try {
             var usuario = obtenerUsuario(req);
             const objeto = {
-                id_proveedor_salud: null,
+                id_acceso_servicio_salud: null,
                 descripcion: parametros.descripcion,
                 id_usuario_registro: usuario.idUsuario,
                 estado_registro: null,
@@ -45,7 +45,7 @@ exports.actualizar = (req, parametros, method) => {
         try {
             var usuario = obtenerUsuario(req);
             const objeto = {
-                id_proveedor_salud: parametros.id_proveedor_salud ? parseInt(parametros.id_proveedor_salud) : 0,
+                id_acceso_servicio_salud: parametros.id_acceso_servicio_salud ? parseInt(parametros.id_acceso_servicio_salud) : 0,
                 descripcion: parametros.descripcion,
                 id_usuario_registro: usuario.idUsuario,
                 estado_registro: null,
@@ -64,7 +64,7 @@ exports.eliminar = (req, parametros, method) => {
         try {
             var usuario = obtenerUsuario(req);
             const objeto = {
-                id_proveedor_salud: parametros.id_proveedor_salud ? parseInt(parametros.id_proveedor_salud) : 0,
+                id_acceso_servicio_salud: parametros.id_acceso_servicio_salud ? parseInt(parametros.id_acceso_servicio_salud) : 0,
                 id_usuario_registro: usuario.idUsuario,
                 estado_registro: null,
                 fecha_registro: null

@@ -24,7 +24,6 @@ module.exports.obtener = (parametros, method) => {
                 `:pIdSexo,` +
                 `:pIdPueblo,` +
                 `:pIdComunidadLinguistica,` +
-                `:pIdProveedorSalud,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -83,11 +82,6 @@ module.exports.obtener = (parametros, method) => {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.id_comunidad_linguistica
-                },
-                pIdProveedorSalud: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
@@ -156,7 +150,11 @@ module.exports.insertar = (parametros, method) => {
                 `:pMigrante,` +
                 `:pIdMigrante,` +
                 `:pFallecido,` +
-                `:pIdProveedorSalud,` +
+                `:pEmbarazada,` +
+                `:pLactancia,` +
+                `:pIdAntecedenteNutricional,` +
+                `:pIdAccesoServicioSalud,` +
+                `:pEnfermedadCronica,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -301,18 +299,36 @@ module.exports.insertar = (parametros, method) => {
                     type: oracledb.NUMBER,
                     val: parametros.id_migrante
                 },
-
                 pFallecido: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.fallecido
                 },
-                pIdProveedorSalud: {
+                pEmbarazada: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
+                    val: parametros.embarazada
                 },
-
+                pLactancia: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.lactancia
+                },
+                pIdAntecedenteNutricional: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.id_antecedente_nutricional
+                },
+                pIdAccesoServicioSalud: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.id_acceso_servicio_salud
+                },
+                pEnfermedadCronica: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.enfermedad_cronica
+                },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
@@ -381,7 +397,11 @@ module.exports.actualizar = (parametros, method) => {
                 `:pMigrante,` +
                 `:pIdMigrante,` +
                 `:pFallecido,` +
-                `:pIdProveedorSalud,` +
+                `:pEmbarazada,` +
+                `:pLactancia,` +
+                `:pIdAntecedenteNutricional,` +
+                `:pIdAccesoServicioSalud,` +
+                `:pEnfermedadCronica,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -531,18 +551,36 @@ module.exports.actualizar = (parametros, method) => {
                     type: oracledb.NUMBER,
                     val: parametros.id_migrante
                 },
-
                 pFallecido: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
                     val: parametros.fallecido
                 },
-                pIdProveedorSalud: {
+                pEmbarazada: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
+                    val: parametros.embarazada
                 },
-
+                pLactancia: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.lactancia
+                },
+                pIdAntecedenteNutricional: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.id_antecedente_nutricional
+                },
+                pIdAccesoServicioSalud: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.id_acceso_servicio_salud
+                },
+                pEnfermedadCronica: {
+                    dir: oracledb.BIND_IN,
+                    type: oracledb.NUMBER,
+                    val: parametros.enfermedad_cronica
+                },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
@@ -578,7 +616,7 @@ module.exports.actualizar = (parametros, method) => {
     });
 }
 
-module.exports.eliminar  = (parametros,method) => {
+module.exports.eliminar = (parametros, method) => {
     return new Promise(async (resolve, reject) => {
         try {
             var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.FAMILIA_INTEGRANTE.ELIMINAR}(` +
@@ -624,7 +662,7 @@ module.exports.eliminar  = (parametros,method) => {
                     type: oracledb.STRING
                 }
             };
-            let result = await ejecutarPackage(plsql, binds, rowMapper,method);
+            let result = await ejecutarPackage(plsql, binds, rowMapper, method);
             return resolve(result);
         } catch (ex) {
             return reject(ex);

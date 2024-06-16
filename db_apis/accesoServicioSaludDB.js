@@ -6,15 +6,13 @@ const {
     PROCEDURES
 } = require('../api-services/procedures/catalogos');
 var oracledb = require('oracledb');
-const { rowMapper } = require('../mapper/proveedorSaludRowsMapper');
+const { rowMapper } = require('../mapper/accesoServicioSaludRowsMapper');
 
 module.exports.obtener = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.PROVEEDOR_SALUD.OBTENER}(` +
-                `:pIdProveedorSalud,` +
-                `:pDescripcion,` +
-                `:pIdUsuarioRegistro,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ACCESO_SERVICIO_SALUD.OBTENER}(` +
+                `:pIdAccesoServicioSalud,` +
                 /** */
                 `:pCursor,` +
                 `:pSmsError,` +
@@ -23,20 +21,10 @@ module.exports.obtener = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdProveedorSalud: {
+                pIdAccesoServicioSalud: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
-                },
-                pDescripcion: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.STRING,
-                    val: parametros.descripcion
-                },
-                pIdUsuarioRegistro: {
-                    dir: oracledb.BIND_IN,
-                    type: oracledb.NUMBER,
-                    val: parametros.id_usuario_registro
+                    val: parametros.id_acceso_servicio_salud
                 },
                 /** */
                 pCursor: {
@@ -71,7 +59,7 @@ module.exports.obtener = (parametros,method) => {
 module.exports.insertar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.PROVEEDOR_SALUD.INSERTAR}(` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ACCESO_SERVICIO_SALUD.INSERTAR}(` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -125,8 +113,8 @@ module.exports.insertar  = (parametros,method) => {
 module.exports.actualizar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.PROVEEDOR_SALUD.ACTUALIZAR}(` +
-                `:pIdProveedorSalud,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ACCESO_SERVICIO_SALUD.ACTUALIZAR}(` +
+                `:pIdAccesoServicioSalud,` +
                 `:pDescripcion,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
@@ -137,10 +125,10 @@ module.exports.actualizar  = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdProveedorSalud: {
+                pIdAccesoServicioSalud: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
+                    val: parametros.id_acceso_servicio_salud
                 },
                 pDescripcion: {
                     dir: oracledb.BIND_IN,
@@ -185,8 +173,8 @@ module.exports.actualizar  = (parametros,method) => {
 module.exports.eliminar  = (parametros,method) => {
     return new Promise(async (resolve, reject) => {
         try {
-            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.PROVEEDOR_SALUD.ELIMINAR}(` +
-                `:pIdProveedorSalud,` +
+            var plsql = `${PACKAGES.PACKAGE}.${PROCEDURES.ACCESO_SERVICIO_SALUD.ELIMINAR}(` +
+                `:pIdAccesoServicioSalud,` +
                 `:pIdUsuarioRegistro,` +
                 /** */
                 `:pCursor,` +
@@ -196,10 +184,10 @@ module.exports.eliminar  = (parametros,method) => {
                 `:pSmsMensajeLog` +
                 `)`;
             var binds = {
-                pIdProveedorSalud: {
+                pIdAccesoServicioSalud: {
                     dir: oracledb.BIND_IN,
                     type: oracledb.NUMBER,
-                    val: parametros.id_proveedor_salud
+                    val: parametros.id_acceso_servicio_salud
                 },
                 pIdUsuarioRegistro: {
                     dir: oracledb.BIND_IN,
